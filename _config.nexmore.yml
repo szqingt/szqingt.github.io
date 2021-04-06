@@ -4,7 +4,7 @@ background: # 既是博客的背景，又是文章默认头图
   width: 1440
   height: 960
 favicon:
-  href: https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/favicon.ico # 网站图标
+  href: /images/favicon.ico # 网站图标
   type: image/png # 图标类型，可能的值有(image/png, image/vnd.microsoft.icon, image/x-icon, image/gif)
 
 function: # 功能开关，可选值（true,false）
@@ -80,7 +80,7 @@ analytics: # 统计系统，目前支持 Google analytics.js 统计、Google Tag
   baidu_site_id: #<ID>
   gtm_container_id: #<ID>
 
-# comment: gitalk # 评论框，目前支持 gitalk,gitment,valine,disqus,disqusjs,changyan,livere,DiscussBot
+comment: false # 评论框，目前支持 gitalk,gitment,valine,disqus,disqusjs,changyan,livere,DiscussBot
 
 gitalk:
   admin: nexmoe # 拥有对该repo进行操作的 GitHub username
