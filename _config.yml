@@ -108,3 +108,7 @@ deploy:
       url: https://github.com/szqingt/szqingt.github.io.git
       branch: gh-pages
       token: $HEXO_DEPLOY_KEY
+
+# 自动生成sitemap
+sitemap: 
+  path: sitemap.xml
