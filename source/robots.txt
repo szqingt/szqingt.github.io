@@ -11,4 +11,4 @@ Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /lib/
-Sitemap: https://szqingt.github.io
+Sitemap: https://szqingt.github.io/sitemap.xml
