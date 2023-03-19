@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1679213995044">
+  <link rel="stylesheet" href="/css/style.css?v=1679214689726">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -110,7 +110,7 @@
         <section class="nexmoe-posts">
     
     <div class="nexmoe-post">
-        <a href="/2023/03/19/%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/">
+        <a href="/2023/03/19/Chrome%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/">
             
                 <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
                     <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Chrome中使用自签名证书" class="lazyload">
@@ -157,7 +157,7 @@
 <p>openssl x509 -req -sha256 -in myserver.csr -CA root.crt -CAkey root.key -CAcreateserial -out myserver.crt -days 365</p>
 </blockquote>
 <h3 id="如何导入证书"><a href="#如何导入证书" class="headerlink" title="如何导入证书"></a>如何导入证书</h3><p>windows直接将根证书导入到受信任的根证书中即可</p>
-<h3 id="chrome-使用证书问题"><a href="#chrome-使用证书问题" class="headerlink" title="chrome 使用证书问题"></a>chrome 使用证书问题</h3><p>通过上面的步骤生成的服务端证书使用对时候，通过chrome浏览器访问浏览器会发现地址栏的锁是红的提示链接不安全<br><img data-fancybox="gallery" data-sizes="auto" data-src="http://wiki.tuzhanai.com/download/attachments/182485224/chrome_ssl_errors.jpg?version=2" alt="chrome不受信" class="lazyload"> </p>
+<h3 id="chrome-使用证书问题"><a href="#chrome-使用证书问题" class="headerlink" title="chrome 使用证书问题"></a>chrome 使用证书问题</h3><p>通过上面的步骤生成的服务端证书使用对时候，通过chrome浏览器访问浏览器会发现地址栏的锁是红的提示链接不安全<br><img data-fancybox="gallery" data-sizes="auto" data-src="/images/posts/chrome_ssl_errors.jpg" alt="chrome不受信" class="lazyload"> </p>
 <h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>在 Chrome 58 之前，Chrome 会根据 CN 来检查访问的域名是不是和证书的域名一致，但是在 Chrome 58 之后，改为使用 SAN(Subject Alternative Name) 而不是 CN 检查域名的一致性。<br>而 SAN 属于 x509 扩展里面的内容，所以我们需要通过 -extfile 参数来指定存放扩展内容的文件。<br>所以可以通过制定SAN属性即可</p>
 <h4 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h4><p>额外创建一个ext文件,内容少的也可以直接跟在后面<br><code>subjectAltName = DNS: myserver.com</code></p>
 <pre><code>subjectAltName = @alt_names
@@ -168,7 +168,7 @@ DNS.1 = myserver.com
 <blockquote>
 <p>openssl x509 -req -sha256 -in myserver.csr -CA root.crt -CAkey root.key -CAcreateserial -out myserver.crt -days 365 -extfile myext.ext</p>
 </blockquote>
-<p>在服务端使用新生成的<code>myserver.crt</code>文件重启，重新在chrome中访问发现地址栏中有小锁了<br><img data-fancybox="gallery" data-sizes="auto" data-src="http://wiki.tuzhanai.com/download/attachments/182485224/chrome_ssl.jpg?version=2" alt="chrome受信" class="lazyload"></p>
+<p>在服务端使用新生成的<code>myserver.crt</code>文件重启，重新在chrome中访问发现地址栏中有小锁了<br><img data-fancybox="gallery" data-sizes="auto" data-src="/images/posts/chrome_ssl.jpg" alt="chrome受信" class="lazyload"></p>
 <p>参考内容<br><a target="_blank" rel="noopener" href="https://alexanderzeitler.com/articles/Fixing-Chrome-missing_subjectAltName-selfsigned-cert-openssl/">Fixing-Chrome-missing_subjectAltName-selfsigned-cert-openssl</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903965499342855#heading-4">如何使用自签名 CA 和证书来保护个人在公网上的内容</a></p>
 
             
@@ -198,7 +198,7 @@ DNS.1 = myserver.com
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
  
 
-<script src="/js/app.js?v=1679213995044"></script>
+<script src="/js/app.js?v=1679214689727"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
