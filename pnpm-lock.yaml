@@ -29,13 +29,13 @@ dependencies:
   hexo-renderer-stylus: registry.npmmirror.com/hexo-renderer-stylus/2.1.0
   hexo-server: registry.npmmirror.com/hexo-server/2.0.0
   hexo-theme-landscape: registry.npmmirror.com/hexo-theme-landscape/0.0.3
-  hexo-theme-nexmoe: github.com/szqingt/hexo-theme-nexmoe/af469d47fd0e3eec7b5025d6339b495e27553a18
+  hexo-theme-nexmoe: github.com/szqingt/hexo-theme-nexmoe/3b47a53d3bc00f8807d8cb1582f80b51d0470400
   hexo-wordcount: registry.npmmirror.com/hexo-wordcount/6.0.1
 
 packages:
 
-  github.com/szqingt/hexo-theme-nexmoe/af469d47fd0e3eec7b5025d6339b495e27553a18:
-    resolution: {tarball: https://codeload.github.com/szqingt/hexo-theme-nexmoe/tar.gz/af469d47fd0e3eec7b5025d6339b495e27553a18}
+  github.com/szqingt/hexo-theme-nexmoe/3b47a53d3bc00f8807d8cb1582f80b51d0470400:
+    resolution: {commit: 3b47a53d3bc00f8807d8cb1582f80b51d0470400, repo: git+ssh://git@github.com/szqingt/hexo-theme-nexmoe.git, type: git}
     name: hexo-theme-nexmoe
     version: 2.7.5
     dependencies:
