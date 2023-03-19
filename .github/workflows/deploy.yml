@@ -22,9 +22,9 @@ jobs:
           node-version: 16
           cache: 'pnpm'
       - name: Install Dependencies
-        run: npm install
+        run: pnpm install
       - name: Build
-        run: npm run build
+        run: pnpm run build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
