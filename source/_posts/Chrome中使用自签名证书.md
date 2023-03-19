@@ -38,7 +38,7 @@ tags: [Chrome, ssl, Certificate]
 windows直接将根证书导入到受信任的根证书中即可
 ### chrome 使用证书问题
 通过上面的步骤生成的服务端证书使用对时候，通过chrome浏览器访问浏览器会发现地址栏的锁是红的提示链接不安全 
-![chrome不受信](http://wiki.tuzhanai.com/download/attachments/182485224/chrome_ssl_errors.jpg?version=2) 
+![chrome不受信](/images/posts/chrome_ssl_errors.jpg) 
 #### 原因
 在 Chrome 58 之前，Chrome 会根据 CN 来检查访问的域名是不是和证书的域名一致，但是在 Chrome 58 之后，改为使用 SAN(Subject Alternative Name) 而不是 CN 检查域名的一致性。
 而 SAN 属于 x509 扩展里面的内容，所以我们需要通过 -extfile 参数来指定存放扩展内容的文件。
@@ -57,7 +57,7 @@ DNS.1 = myserver.com
 > openssl x509 -req -sha256 -in myserver.csr -CA root.crt -CAkey root.key -CAcreateserial -out myserver.crt -days 365 -extfile myext.ext
 
 在服务端使用新生成的`myserver.crt`文件重启，重新在chrome中访问发现地址栏中有小锁了
-![chrome受信](http://wiki.tuzhanai.com/download/attachments/182485224/chrome_ssl.jpg?version=2)
+![chrome受信](/images/posts/chrome_ssl.jpg)
 
 
 参考内容  
