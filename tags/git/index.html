@@ -4,7 +4,7 @@
 
 <head>
   
-  <title>Tags：win - ForgCode</title>
+  <title>Tags：git - ForgCode</title>
   <meta charset="UTF-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -20,7 +20,7 @@
   <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/szqingt/szqingt.github.io@gh-pages/images/favicon.ico" type="image/png" />
   <meta property="og:type" content="website">
 <meta property="og:title" content="ForgCode">
-<meta property="og:url" content="https://szqingt.github.io/tags/win/index.html">
+<meta property="og:url" content="https://szqingt.github.io/tags/git/index.html">
 <meta property="og:site_name" content="ForgCode">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="szqingt">
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1679211277162">
+  <link rel="stylesheet" href="/css/style.css?v=1679211277161">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -110,71 +110,48 @@
         <section class="nexmoe-posts">
     
     <div class="nexmoe-post">
-        <a href="/2021/04/11/windows-10-update-20h2-0x80242016-%E9%97%AE%E9%A2%98/">
+        <a href="/2023/03/19/GIT%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E4%B8%8D%E5%90%8C%E7%94%A8%E6%88%B7/">
             
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: NaN%;"> 
-                    <img data-src="/images/posts/windows-10.jpg" data-sizes="auto" alt="windows 10 update 20h2 0x80242016 问题" class="lazyload">
-                    <h1>windows 10 update 20h2 0x80242016 问题</h1>
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="GIT项目配置不同用户" class="lazyload">
+                    <h1>GIT项目配置不同用户</h1>
                 </div>
             
         </a>
 
         <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2021年04月11日</a>
-            <a><i class="nexmoefont icon-areachart"></i>956 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
+            <a><i class="nexmoefont icon-calendar-fill"></i>2023年03月19日</a>
+            <a><i class="nexmoefont icon-areachart"></i>457 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
         </div>
 
         <article>
             
-                <h2 id="启因"><a href="#启因" class="headerlink" title="启因"></a>启因</h2><p>在折腾wsl2的时候想准备把windows升级到最新版本，使用<code>updates</code>来更新，但是就是不成功。在windows updates中的安装历史中一直显示如下内容</p>
-<blockquote>
-<p>Feature Update to Windows 10, version 20H2 has failed to installed 6 times.<br>    Last failed install attempted on MM/DD/YYY - 0x80242016”.</p>
-</blockquote>
-<p>由于我之前的windows是在1909的版本，这个版本是包含了wsl2的内容。当时一心弄wsl2的就暂时搁置升级，放在哪儿不管了。</p>
-<p>随着wsl2的折腾完了，升级这个的事情我都忘记了。突然有一天windows自动更新了。但是又失败了。看着这失败次数到达6次之多，就想下手彻底解决这个问题。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>在网上找了一圈这个错误，并没有啥具体的解决方案，所以打算使用windows的易升，也就是更新助手。直接在windows官方<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/software-download/windows10">下载</a>使用即可, 操作步骤简单按照提示来就行。</p>
-<p>一顿操作但是对于我来说并不启作用，还是失败。准备使用万能的修电脑三连（重启、重装、重买）。准备进行重装，直接在官网下载制作U盘安装。在下载制作的途中，看着我重装要后要处理的一堆东西有点不甘心。搭上梯子上google搜索一番找找和baidu上不同的答案。搜索到一个一模一样的<a target="_blank" rel="noopener" href="https://answers.microsoft.com/en-us/windows/forum/windows_10-update/windows-10-feature-update-20h2-consistently-fails/65d93edb-6423-43cd-a140-a3c847066380">提问</a>，我顿时来了精神，一看多大5页的讨论。花了点时间大概看来一遍，看到一条很关键的讨论回复</p>
-<blockquote>
-<p>I have the same problem induced by transfering the windows10 from HDD to SDD disk, during the transfer the WinRE partition was lost!</p>
-</blockquote>
-<p>意思是迁移过系统盘到ssd，导致winRE部分丢失。正好我前段时间也是更换了ssd，我意识到这应该就是我的答案了。而且他还提供了详细的修复步骤，步骤如下</p>
+                <p>平时开发公司项目，也会在其他地方使用在GitHub、gitlab上等，去维护<del>拷贝</del>项目，或者自己乱写不成熟的项目提交代码。一般情况下，直接用下面的命令全局配置用户名。</p>
+<pre><code class="bash">git config --global user.name 法外狂徒张三
+</code></pre>
+<p>但是在维护公司的项目时，一般都怎么能随随便便的暴露这么中二的名字呢，通常都需要自己真实姓名方便查找，所以我们面临这个问题：不同的项目提交代码时，使用不同的用户名。</p>
+<h3 id="为项目单独配置"><a href="#为项目单独配置" class="headerlink" title="为项目单独配置"></a>为项目单独配置</h3><pre><code class="bash">git config --local user.name 张三
+git config --local user.email zhangsan@email.com
+</code></pre>
+<p>这种方式会在当前的git项目中的<code>.gitconfig</code>中生成，</p>
+<pre><code>[user]
+  name = 张三
+  email = zhangsan@email.com
+</code></pre>
+<h3 id="批量配置"><a href="#批量配置" class="headerlink" title="批量配置"></a>批量配置</h3><p>通常公司的项目都不会只有几个，有个十几甚至几十个项目的时候每个都这么操作就有点繁琐了，可以使用git的includeIf配置，实现某个目录下使用某个配置的方式。  </p>
 <ol>
-<li><p>Boot from Windows 10 installation disc and press any key to continue.<br>通过安装盘启动，刚刚好前面做好了u盘，直接进入bios设置u盘启动</p>
-</li>
-<li><p>Then navigate to Repair your computer-&gt;Troubleshoot-&gt;Advanced options-&gt;Command Prompt.<br>进入安装页面，先是选择一些语言啥的，直接下一步，在左下角有个修计算机的选项，点击进入-&gt;选择疑难解答-&gt;命令行提示符</p>
-</li>
-<li><p>Type diskpart in the command prompt.<br>在命令行输入<code>diskpart</code></p>
-</li>
-<li><p>Type the following command and press Enter after each command.<br>跟着下面的操作步骤</p>
-<pre><code> List disk
- Sel disk 0 (where 0 stands for the boot drive)
- List vol (note which volume is the EFI partition, mine is 4)
- Sel vol 4
- assign letter=N:
- Exit
- Step 5. Type N: (the drive letter you just assigned and hit Enter.)
-
- list disk -&gt; 显示出系统上的磁盘
- sel disk * -&gt; 把*更换成你的系统安装所在的磁盘
- list vol -&gt; 显示出磁盘上的卷
- sel vol * -&gt; 把*更换为你卷上EFI分区的卷
- assign letter=N: -&gt; 将N设置为刚刚选择的EFI分区卷，这里你自己控制可以用其他为其他字母
- exit -&gt; 退出diskpart模式
+<li>假设公司的项目都在<code>/User/company/projects/</code>下面,那么我们可以在此目录下创建一个<code>.gitconfig</code>文件配置如下<pre><code>[user]
+  name = 张三
+  email = zhangsan@email.com
 </code></pre>
 </li>
-<li><p>After you have assigned a drive letter Using Diskpart, you can format the EFI partition using the following command.<br>格式化刚刚创建的卷</p>
-<pre><code> format N: /FS:FAT32
-</code></pre>
-</li>
-<li><p>Now, type bcdboot C:\windows /s N: /f UEFI and hit Enter. This command will repair your Bootloader.(My windows are located in D:\windows)<br>使用命令修复UEFI,使用的时候具体你windows在那个盘就用那个盘，刚刚创建的卷是哪个就输入哪个。比如我的windows在C:刚刚创建的卷为N:</p>
-<pre><code> 我使用的命令如下
- bcdboot C:\windows /s N: /f UEFI
+<li>修改全局的<code>.gitconfig</code>，通常这个配置文件路径一般都是<code>~/.gitconfig</code>。<pre><code>[includeIf &quot;gitdir:/Users/company/projects/&quot;]
+  path = /Users/company/projects/.gitconfig
 </code></pre>
 </li>
 </ol>
-<p>完成上面步骤的操作后尝试使用 <code>bootrec /fixboot</code>来进行修复。</p>
-<p>所有操作完成退出u盘的启动引导，更换为刚刚创建的引导。重启之后进入windows update让他自动升级。升级成功！！！</p>
+<p>这样在projects这个路径下的所有项目，配置信息就直接使用projects/.gitconfig中的配置了。但是配置也有优先级。如果在项目自己的配置文件中已经有了用户名的配置，则优先使用项目自己的配置。如果项目没有单独配置，则再根据当前根路径是否指定了配置文件去获取对应的配置信息</p>
 
             
         </article>
@@ -203,7 +180,7 @@
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
  
 
-<script src="/js/app.js?v=1679211277163"></script>
+<script src="/js/app.js?v=1679211277162"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
