@@ -1,0 +1,4 @@
+# welcome to : https://szqingt.github.io
+User-agent: *
+Allow: *
+Sitemap: https://szqingt.github.io/sitemap.xml

@@ -1,7 +1,8 @@
 ---
-title: Chrome中使用自签名证书
-date: 2023-03-19 15:09:30
+title: 'Chrome中使用自签名证书'
+pubDate: '2023-03-19 15:09:30'
 tags: [Chrome, ssl, Certificate]
+description: '如何在chroem中使用自签名证书'
 ---
 
 
