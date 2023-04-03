@@ -1,0 +1,17 @@
+---
+
+export interface Props {
+	tag: string;
+}
+
+const { tag } = Astro.props;
+---
+<style>
+  .tag {
+    background-color: burlywood;
+    padding: 2px 8px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+</style>
+<a class="tag" href={`/tags/${tag}`}>{tag}</a>

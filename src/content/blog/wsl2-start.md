@@ -2,7 +2,7 @@
 title: 'wsl2 start vscode develop'
 pubDate: '2021-04-07 23:01:2'
 description: 'wsl2 vscode 开发方式'
-tags: [wsl, ubuntu, vscode]
+tags: ['wsl', 'ubuntu', 'vscode', '技术']
 ---
 
 ## WSL2 是啥

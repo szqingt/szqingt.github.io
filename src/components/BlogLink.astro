@@ -1,0 +1,15 @@
+---
+
+export interface Props {
+  slug: string;
+	title: string;
+}
+
+const { slug, title } = Astro.props;
+---
+<style>
+  .blog-link {
+    
+  }
+</style>
+<a class="blog-link" href={`/blog/${slug}/`}>{title}</a>

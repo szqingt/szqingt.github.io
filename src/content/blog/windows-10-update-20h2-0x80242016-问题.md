@@ -2,7 +2,7 @@
 title: 'windows 10 update 20h2 0x80242016 问题'
 pubDate: '2021-04-07 23:01:28'
 description: 'windows 10 0x80242016 解决方式'
-tags: [win, windows10, problem]
+tags: ['windows10', 'problem', '技术']
 ---
 
 ## 启因

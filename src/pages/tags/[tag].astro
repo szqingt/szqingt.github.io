@@ -1,0 +1,50 @@
+---
+import { CollectionEntry, getCollection } from 'astro:content';
+import BlogLink from '../../components/BlogLink.astro';
+import BlogPostList from '../../components/BlogPostList.astro';
+import BlogBase from '../../layouts/BlogBase.astro';
+
+const { tag } = Astro.params;
+const { tagAllPost } = Astro.props;
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+
+	const allTags = Array.from(posts.reduce((pre, cur) => {
+		cur.data.tags.forEach(tag => {
+			pre.add(tag);
+		})
+		return pre
+	}, new Set<string>()))
+
+	function getTagInfo(posts: CollectionEntry<"blog">[], tag: string) {
+		const needPosts = posts.filter(post => post.data.tags.includes(tag));
+		const tagAllPost = needPosts.map(post => post);
+
+		return {
+			tagAllPost
+		}
+	}
+
+	return allTags.map((tag) => {
+		return {
+			params: {
+				tag
+			},
+			props: getTagInfo(posts, tag)
+		}
+	})
+}
+
+type Props = {
+	tagAllPost: CollectionEntry<'blog'>[]
+}
+
+---
+
+<BlogBase title="blog tag">
+	<main>
+		<h1>tag: {tag}</h1>
+		<BlogPostList posts={tagAllPost} />
+	</main>
+</BlogBase>
