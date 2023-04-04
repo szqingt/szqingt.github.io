@@ -4,8 +4,6 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
-import BlogLink from '../components/BlogLink.astro';
 import BlogPostList from '../components/BlogPostList.astro';
 
 const posts = (await getCollection('blog')).sort(
@@ -18,7 +16,7 @@ const posts = (await getCollection('blog')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
+	<body class="font-sans">
 		<Header />
 		<main>
 			<section>

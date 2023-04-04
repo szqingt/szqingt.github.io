@@ -34,7 +34,7 @@ const { title, description, pubDate, updatedDate, tags } = Astro.props;
 <BlogBase title={title} description={description}>
 	<main>
 		<article>
-			<h1 class="title">{title}</h1>
+			<h1 class="title text-title">{title}</h1>
 			<div class="tags">
 				{tags.map(tag => <Tag tag={tag}/>)}
 			</div>
