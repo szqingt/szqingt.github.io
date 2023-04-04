@@ -65,22 +65,22 @@ blockquote {
 	font-style: italic;
 }
 
-:root {
-	--c-bg: #050505;
-	--c-scrollbar: #111;
-	--c-scrollbar-hover: #222;
-	--c-text-title: rgba(251, 251, 251, 0.85);
-	--c-text-primary: rgba(251, 251, 251, 0.65);
-	--c-text-secondary: rgba(251, 251, 251, 0.45);
-}
-
-:root.dark {
+:root.light {
 	--c-bg: #fff;
 	--c-scrollbar: #eee;
 	--c-scrollbar-hover: #bbb;
 	--c-text-title: rgba(0, 0, 0, 0.85);
 	--c-text-primary: rgba(0, 0, 0, 0.65);
 	--c-text-secondary: rgba(0, 0, 0, 0.45);
+}
+
+:root.dark {
+	--c-bg: #050505;
+	--c-scrollbar: #111;
+	--c-scrollbar-hover: #222;
+	--c-text-title: rgba(251, 251, 251, 0.85);
+	--c-text-primary: rgba(251, 251, 251, 0.65);
+	--c-text-secondary: rgba(251, 251, 251, 0.45);
 }
 
 @media (prefers-color-scheme: dark) {

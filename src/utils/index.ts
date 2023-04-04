@@ -1,14 +1,15 @@
-let themeMode = localStorage.getItem('color-scheme') || 'auto';
+let themeMode = localStorage.getItem('color-scheme') || 'auto'
 
 function toggleTheme() {
-  document.documentElement.classList.toggle('dark')
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
 
   function setMode(mode: string) {
+    document.documentElement.classList.remove(themeMode === 'auto' ? prefersDark ? 'dark' : 'light' : themeMode)
     themeMode = mode
-    localStorage.setItem('color-scheme', themeMode);
+    document.documentElement.classList.add(themeMode === 'auto' ? prefersDark ? 'dark' : 'light' : themeMode)
+    localStorage.setItem('color-scheme', themeMode)
   }
 
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
   // 系统推荐黑暗 当前是不是light
   if (prefersDark && themeMode !== 'light') {
     setMode('light')
