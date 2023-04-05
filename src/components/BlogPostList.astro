@@ -28,7 +28,7 @@ posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
   {
     posts.map((post) => (
       <li>
-        <span class="block min-w-9rem">
+        <span class="block min-w-10rem">
           <FormattedDate date={post.data.pubDate} />
           . <span class="text-secondary">{simpleCalcReadingTime(post.body)}</span>
         </span>

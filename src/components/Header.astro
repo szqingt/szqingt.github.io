@@ -3,7 +3,7 @@ import { SITE_TITLE } from '../consts';
 import ToggleTheme from './ToggleTheme.astro';
 ---
 <style>
-	.header :global(a){
+	nav :global(a){
 		cursor: pointer;
     text-decoration: none;
     color: var(--c-text-primary);
@@ -12,13 +12,13 @@ import ToggleTheme from './ToggleTheme.astro';
     outline: none;
 	}
 
-	.header :global(a):hover {
+	nav :global(a):hover {
 		opacity: 1;
 	}
 </style>
 <header class="header">
-	<h2 class="text-title w10 h10 absolute lg:fixed m-6 select-none outline-none">
-		{SITE_TITLE}
+	<h2 class="w10 h10 absolute lg:fixed m-6 select-none outline-none text-hex-65786E dark:text-hex-B0BDB6">
+		<a href='/' class="i-custom:site-logo text-2rem"></a>
 	</h2>
 	<nav class="p-2rem flex justify-end">
 		<a href="/rss.xml" target="_blank" title="RSS" class="i-carbon-rss"></a>
