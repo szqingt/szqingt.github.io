@@ -10,31 +10,42 @@ export interface Props {
 
 const { posts } = Astro.props;
 
-posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+
+const getYear = (a: Date | string | number) => new Date(a).getFullYear()
+const isSameYear = (a: Date | string | number, b: Date | string | number) => a && b && getYear(a) === getYear(b)
+
 ---
 <style>
   ul {
     list-style-type: none;
     padding: unset;
   }
-  ul li {
-    display: flex;
-  }
   ul li a:visited {
     color: #8e32dc;
   }
 </style>
+<!--  -->
 <ul>
   {
-    posts.map((post) => (
-      <li>
-        <span class="block min-w-10rem">
-          <FormattedDate date={post.data.pubDate} />
-          . <span class="text-secondary">{simpleCalcReadingTime(post.body)}</span>
-        </span>
-        <BlogLink slug={post.slug} title={post.data.title} />
+    posts.map((post, idx) => (
+      <>
+        {!isSameYear(post.data.pubDate, posts[idx - 1]?.data.pubDate) &&
+          <div class="relative h20 pointer-events-none">
+            <span class="text-8em op10 absolute left--3rem top--2rem font-bold leading-relaxed">
+              {getYear(post.data.pubDate)}
+            </span>
+          </div>
+        }
+        <li class="item block font-normal mb-6 mt-2 no-underline">
+          <BlogLink slug={post.slug} title={post.data.title} />
+          <span class="block min-w-10rem text-tertiary">
+            <FormattedDate date={post.data.pubDate} />
+            . <span>{simpleCalcReadingTime(post.body)}</span>
+          </span>
+        </li>
+      </>
 
-      </li>
     ))
   }
 </ul>

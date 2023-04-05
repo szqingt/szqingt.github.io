@@ -13,9 +13,6 @@ strong,
 b {
 	color: #222;
 }
-a {
-	color: #3273dc;
-}
 nav a {
 	margin-right: 10px;
 }
@@ -61,15 +58,17 @@ blockquote {
 	--c-text-title: rgba(0, 0, 0, 0.88);
 	--c-text-primary: rgba(0, 0, 0, 0.78);
 	--c-text-secondary: rgba(0, 0, 0, 0.68);
+	--c-text-tertiary: rgba(0, 0, 0, 0.48);
 }
 
 :root.dark {
 	--c-bg: #050505;
 	--c-scrollbar: #111;
 	--c-scrollbar-hover: #222;
-	--c-text-title: rgba(251, 251, 251, 0.88);
-	--c-text-primary: rgba(251, 251, 251, 0.78);
-	--c-text-secondary: rgba(251, 251, 251, 0.68);
+	--c-text-title: rgba(255, 255, 255, 0.88);
+	--c-text-primary: rgba(255, 255, 255, 0.78);
+	--c-text-secondary: rgba(255, 255, 255, 0.68);
+	--c-text-tertiary: rgba(255, 255, 255, 0.48);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -77,9 +76,10 @@ blockquote {
 		--c-bg: #050505;
 		--c-scrollbar: #111;
 		--c-scrollbar-hover: #222;
-		--c-text-title: rgba(251, 251, 251, 0.88);
-		--c-text-primary: rgba(251, 251, 251, 0.78);
-		--c-text-secondary: rgba(251, 251, 251, 0.68);
+		--c-text-title: rgba(255, 255, 255, 0.88);
+		--c-text-primary: rgba(255, 255, 255, 0.78);
+		--c-text-secondary: rgba(255, 255, 255, 0.68);
+		--c-text-tertiary: rgba(255, 255, 255, 0.48);
 	}
 }
 @media (prefers-color-scheme: light) {
@@ -90,6 +90,7 @@ blockquote {
 		--c-text-title: rgba(0, 0, 0, 0.88);
 		--c-text-primary: rgba(0, 0, 0, 0.78);
 		--c-text-secondary: rgba(0, 0, 0, 0.68);
+		--c-text-tertiary: rgba(0, 0, 0, 0.48);
 	}
 }
 
@@ -109,6 +110,10 @@ html {
 
 .text-secondary {
 	color: var(--c-text-secondary);
+}
+
+.text-tertiary {
+	color: var(--c-text-tertiary);
 }
 
 
