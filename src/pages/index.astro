@@ -1,28 +1,17 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
 import BlogPostList from '../components/BlogPostList.astro';
+import BlogBase from '../layouts/BlogBase.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
-
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body class="font-sans">
-		<Header />
-		<main>
-			<section>
-				<BlogPostList posts={posts} />
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BlogBase title={SITE_TITLE}>
+	<main>
+		<section>
+			<BlogPostList posts={posts} />
+		</section>
+	</main>
+</BlogBase>
