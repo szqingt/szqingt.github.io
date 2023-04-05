@@ -3,17 +3,6 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
-body {
-	font-family: Verdana, sans-serif;
-	margin: auto;
-	padding: 20px;
-	max-width: 65ch;
-	text-align: left;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	line-height: 1.5;
-	color: #444;
-}
 h1,
 h2,
 h3,
@@ -69,18 +58,18 @@ blockquote {
 	--c-bg: #fff;
 	--c-scrollbar: #eee;
 	--c-scrollbar-hover: #bbb;
-	--c-text-title: rgba(0, 0, 0, 0.85);
-	--c-text-primary: rgba(0, 0, 0, 0.65);
-	--c-text-secondary: rgba(0, 0, 0, 0.45);
+	--c-text-title: rgba(0, 0, 0, 0.88);
+	--c-text-primary: rgba(0, 0, 0, 0.78);
+	--c-text-secondary: rgba(0, 0, 0, 0.68);
 }
 
 :root.dark {
 	--c-bg: #050505;
 	--c-scrollbar: #111;
 	--c-scrollbar-hover: #222;
-	--c-text-title: rgba(251, 251, 251, 0.85);
-	--c-text-primary: rgba(251, 251, 251, 0.65);
-	--c-text-secondary: rgba(251, 251, 251, 0.45);
+	--c-text-title: rgba(251, 251, 251, 0.88);
+	--c-text-primary: rgba(251, 251, 251, 0.78);
+	--c-text-secondary: rgba(251, 251, 251, 0.68);
 }
 
 @media (prefers-color-scheme: dark) {

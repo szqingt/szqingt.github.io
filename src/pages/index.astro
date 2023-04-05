@@ -9,9 +9,7 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 <BlogBase title={SITE_TITLE}>
-	<main>
-		<section>
-			<BlogPostList posts={posts} />
-		</section>
-	</main>
+	<section>
+		<BlogPostList posts={posts} />
+	</section>
 </BlogBase>

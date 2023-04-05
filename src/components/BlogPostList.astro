@@ -8,6 +8,9 @@ export interface Props {
 }
 
 const { posts } = Astro.props;
+
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
 ---
 <style>
   ul {
