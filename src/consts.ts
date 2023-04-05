@@ -3,3 +3,8 @@
 
 export const SITE_TITLE = 'My personal website.';
 export const SITE_DESCRIPTION = 'Welcome to my website!';
+
+
+export const REDIRECT_INFO_LIST = [
+  {path: 'github', redirect: 'https://github.com/szqingt'}
+]
