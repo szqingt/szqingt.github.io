@@ -17,12 +17,12 @@ import ToggleTheme from './ToggleTheme.astro';
 	}
 </style>
 <header class="header">
-	<h2 class="w10 h10 absolute lg:fixed m-6 select-none outline-none">
+	<h2 class="text-title w10 h10 absolute lg:fixed m-6 select-none outline-none">
 		{SITE_TITLE}
 	</h2>
 	<nav class="p-2rem flex justify-end">
-		<ToggleTheme />
 		<a href="/rss.xml" target="_blank" title="RSS" class="i-carbon-rss"></a>
+		<ToggleTheme />
 	</nav>
 	
 </header>

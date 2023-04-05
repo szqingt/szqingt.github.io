@@ -10,10 +10,6 @@ const { title, description, pubDate, updatedDate, tags } = Astro.props;
 ---
 
 <style>
-	.title {
-		font-size: 2em;
-		margin: 0.25em 0 0;
-	}
 	hr {
 		border-top: 1px solid #ddd;
 		margin: 1rem 0;
@@ -33,7 +29,7 @@ const { title, description, pubDate, updatedDate, tags } = Astro.props;
 </style>
 <BlogBase title={title} description={description}>
 	<article>
-		<h1 class="title text-title">{title}</h1>
+		<h1 class="text-title text-2rem my-1">{title}</h1>
 		<div class="tags">
 			{tags.map(tag => <Tag tag={tag}/>)}
 		</div>

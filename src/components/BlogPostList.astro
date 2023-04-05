@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { simpleCalcReadingTime } from '../utils';
 import BlogLink from './BlogLink.astro';
 import FormattedDate from './FormattedDate.astro';
 
@@ -10,7 +11,6 @@ export interface Props {
 const { posts } = Astro.props;
 
 posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-
 ---
 <style>
   ul {
@@ -20,11 +20,6 @@ posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
   ul li {
     display: flex;
   }
-  ul li :global(time) {
-    flex: 0 0 130px;
-    font-style: italic;
-    color: #595959;
-  }
   ul li a:visited {
     color: #8e32dc;
   }
@@ -33,8 +28,12 @@ posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
   {
     posts.map((post) => (
       <li>
-        <FormattedDate date={post.data.pubDate} />
+        <span class="block min-w-9rem">
+          <FormattedDate date={post.data.pubDate} />
+          . <span class="text-secondary">{simpleCalcReadingTime(post.body)}</span>
+        </span>
         <BlogLink slug={post.slug} title={post.data.title} />
+
       </li>
     ))
   }
