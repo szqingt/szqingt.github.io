@@ -8,10 +8,23 @@ const { tag } = Astro.props;
 ---
 <style>
   .tag {
-    background-color: burlywood;
-    padding: 2px 8px;
-    border-radius: 8px;
+    font-size: 12px;
+    display: inline-block;
+    border: 1px solid;
+    border-color: var(--c-text-secondary);
+    padding: 0 10px 0 10px;
+    color: var(--c-text-secondary);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .tag:hover {
+    color: var(--c-text-primary);
+    border-color: var(--c-text-primary);
+    background-color: rgba(0,0,0,0.05);
     text-decoration: none;
   }
+  :global(.dark) .tag:hover {
+    background-color: rgb(255 255 255 / 20%);
+  }
 </style>
-<a class="tag" href={`/tags/${tag}`}>{tag}</a>
+<a class="tag rounded-full leading-6" href={`/tags/${tag}`}>{tag}</a>

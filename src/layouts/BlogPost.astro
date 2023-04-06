@@ -29,10 +29,10 @@ const { title, description, pubDate, updatedDate, tags } = Astro.props;
 </style>
 <BlogBase title={title} description={description}>
 	<article>
-		<h1 class="text-title text-2rem my-1">{title}</h1>
 		<div class="tags">
 			{tags.map(tag => <Tag tag={tag}/>)}
 		</div>
+		<h1 class="text-title text-2rem my-5">{title}</h1>
 		<FormattedDate date={pubDate} />
 		{
 			updatedDate && (

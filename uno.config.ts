@@ -1,5 +1,4 @@
 import { defineConfig, presetIcons, presetUno } from 'unocss'
-import logo from './public/faviocn.svg'
 
 export default defineConfig({
   presets: [
