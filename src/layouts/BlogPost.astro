@@ -1,4 +1,5 @@
 ---
+import '../styles/markdown.css'
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import Tag from "../components/Tag.astro";
@@ -28,20 +29,21 @@ const { title, description, pubDate, updatedDate, tags } = Astro.props;
 	}
 </style>
 <BlogBase title={title} description={description}>
-	<article>
-		<div class="tags">
-			{tags.map(tag => <Tag tag={tag}/>)}
-		</div>
-		<h1 class="text-title text-2rem my-5">{title}</h1>
-		<FormattedDate date={pubDate} />
-		{
-			updatedDate && (
-				<div class="last-updated-on">
-					Last updated on <FormattedDate date={updatedDate} />
-				</div>
-			)
-		}
-		<hr />
+
+	<div class="tags">
+		{tags.map(tag => <Tag tag={tag}/>)}
+	</div>
+	<h1 class="text-title text-2rem my-5">{title}</h1>
+	<FormattedDate date={pubDate} />
+	{
+		updatedDate && (
+			<div class="last-updated-on">
+				Last updated on <FormattedDate date={updatedDate} />
+			</div>
+		)
+	}
+	<hr />
+	<article class="prose">
 		<slot />
 	</article>
 </BlogBase>

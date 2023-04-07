@@ -1,5 +1,4 @@
 ---
-import { SITE_TITLE } from '../consts';
 import ToggleTheme from './ToggleTheme.astro';
 ---
 <style>
@@ -20,7 +19,7 @@ import ToggleTheme from './ToggleTheme.astro';
 	<h2 class="w10 h10 absolute lg:fixed m-6 select-none outline-none text-hex-3C5145 dark:text-hex-BAC1B9">
 		<a href='/' class="i-custom:site-logo text-2rem"></a>
 	</h2>
-	<nav class="p-2rem flex justify-end">
+	<nav class="p-2rem flex justify-end gap-5">
 		<a href="/rss.xml" target="_blank" title="RSS" class="i-carbon-rss"></a>
 		<ToggleTheme />
 	</nav>
