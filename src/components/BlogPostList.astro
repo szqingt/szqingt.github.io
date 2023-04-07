@@ -41,7 +41,7 @@ const isSameYear = (a: Date | string | number, b: Date | string | number) => a &
           <BlogLink slug={post.slug} title={post.data.title} />
           <span class="block min-w-10rem text-tertiary">
             <FormattedDate date={post.data.pubDate} />
-            . <span>{simpleCalcReadingTime(post.body)}</span>
+            · <span>{simpleCalcReadingTime(post.body)}</span>
           </span>
         </li>
       </>

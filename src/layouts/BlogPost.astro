@@ -4,10 +4,11 @@ import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import Tag from "../components/Tag.astro";
 import BlogBase from "./BlogBase.astro";
+import { simpleCalcReadingTime } from '../utils';
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, tags } = Astro.props;
+const { title, description, pubDate, updatedDate, tags, body } = Astro.props;
 ---
 
 <style>
@@ -34,7 +35,10 @@ const { title, description, pubDate, updatedDate, tags } = Astro.props;
 		{tags.map(tag => <Tag tag={tag}/>)}
 	</div>
 	<h1 class="text-title text-2rem my-5">{title}</h1>
-	<FormattedDate date={pubDate} />
+	<span class="block min-w-10rem text-tertiary">
+		<FormattedDate date={pubDate} />
+		· <span>{simpleCalcReadingTime(body)}</span>
+	</span>
 	{
 		updatedDate && (
 			<div class="last-updated-on">
