@@ -11,6 +11,7 @@
 }
 
 .prose a {
+  color: var(--c-text-primary);
   font-weight: inherit;
   text-decoration: none;
   border-bottom: 1px solid var(--c-text-tertiary);
@@ -18,7 +19,7 @@
 }
 
 .prose a:hover {
-  border-bottom: 1px solid var(--c-text-secondary);
+  border-bottom: 1px solid var(--c-text-primary);
 }
 
 .prose a code {
