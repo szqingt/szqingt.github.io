@@ -1,0 +1,30 @@
+---
+export interface Props {
+  headings: any[]
+}
+
+const { headings } = Astro.props;
+
+function depthClass(depth: number) {
+	const classList = ['', '', 'ml-2', 'ml-4', 'ml-6', 'ml-8', 'ml-10'];
+	return classList[depth] || 'ml-10'
+}
+---
+<>
+  <h2 class="font-semibold">Table of Contents</h2>
+  <ul class="mt-4 text-xs">
+    {headings.map(({ depth, slug, text }) => (
+      <li class="line-clamp-2 mt-3">
+        <a
+          class={`${
+            depthClass(depth)
+          }`}
+          href={`#${slug}`}
+          aria-label={`Scroll to section: ${text}`}
+        >
+          {text}
+        </a>
+      </li>
+    ))}
+  </ul>
+</>

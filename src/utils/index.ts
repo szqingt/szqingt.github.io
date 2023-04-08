@@ -1,3 +1,6 @@
+
+import { getCollection } from 'astro:content';
+
 let themeMode = localStorage.getItem('color-scheme') || 'auto'
 
 export function toggleTheme() {
@@ -37,6 +40,14 @@ export function simpleCalcReadingTime(content: string): string {
   sec += wordLength / 4
   sec += picLength * 15
   return `${Math.ceil(sec / 60)}min`;
+}
+
+export async function getBlogUsablePost() {
+
+const posts = (await getCollection('blog')).filter(post => !post.data.draft).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+return posts;
 }
 
 export {

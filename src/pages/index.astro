@@ -1,12 +1,10 @@
 ---
 import { SITE_TITLE } from '../consts';
-import { getCollection } from 'astro:content';
 import BlogPostList from '../components/BlogPostList.astro';
 import BlogBase from '../layouts/BlogBase.astro';
+import { getBlogUsablePost } from '../utils';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const posts = await getBlogUsablePost();
 ---
 <BlogBase title={SITE_TITLE}>
 	<section>

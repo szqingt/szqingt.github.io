@@ -1,14 +1,25 @@
 ---
-import '../styles/markdown.css'
+import "../styles/markdown.css";
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
+import TableOfContents from "../components/TableOfContents.astro";
 import Tag from "../components/Tag.astro";
 import BlogBase from "./BlogBase.astro";
-import { simpleCalcReadingTime } from '../utils';
+import { simpleCalcReadingTime } from "../utils";
 
-type Props = CollectionEntry<"blog">["data"];
+interface Props {
+	post: CollectionEntry<"blog">;
+}
 
-const { title, description, pubDate, updatedDate, tags, body } = Astro.props;
+const { post } = Astro.props;
+const {
+	data: { title, tags, description, pubDate, updatedDate },
+	body,
+} = post;
+
+const { headings } = await post.render();
+
+
 ---
 
 <style>
@@ -30,9 +41,8 @@ const { title, description, pubDate, updatedDate, tags, body } = Astro.props;
 	}
 </style>
 <BlogBase title={title} description={description}>
-
 	<div class="tags">
-		{tags.map(tag => <Tag tag={tag}/>)}
+		{tags.map((tag) => <Tag tag={tag} />)}
 	</div>
 	<h1 class="text-title text-2rem my-5">{title}</h1>
 	<span class="block min-w-10rem text-tertiary">
@@ -47,7 +57,16 @@ const { title, description, pubDate, updatedDate, tags, body } = Astro.props;
 		)
 	}
 	<hr />
-	<article class="prose">
-		<slot />
-	</article>
+	<div class="flex items-start">
+		{
+			!!headings.length && (
+				<aside class="doc-aside sticky top-20 shrink-0 pl-8 -mr-50 order-2">
+					<TableOfContents headings={headings} />
+				</aside>
+			)
+		}
+		<article class="flex-grow prose">
+			<slot />
+		</article>
+	</div>
 </BlogBase>

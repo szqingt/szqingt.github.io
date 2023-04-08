@@ -6,11 +6,16 @@
  --c-text-primary: rgba(0, 0, 0, 0.78);
  --c-text-secondary: rgba(0, 0, 0, 0.68);
  --c-text-tertiary: rgba(0, 0, 0, 0.48); */
+
+.prose {
+  max-width: 65ch;
+}
+
 .prose img {
   width: 100%;
 }
 
-.prose a {
+.prose a,.doc-aside a {
   color: var(--c-text-primary);
   font-weight: inherit;
   text-decoration: none;
@@ -18,7 +23,7 @@
   transition: border 0.3s ease-in-out;
 }
 
-.prose a:hover {
+.prose a,.doc-aside a:hover {
   border-bottom: 1px solid var(--c-text-primary);
 }
 
@@ -316,7 +321,7 @@ h6:focus .header-anchor {
   line-height: 1.7142857;
 }
 .prose thead {
-  color: #111827;
+  color: var(--c-text-title);
   font-weight: 600;
   border-bottom-width: 1px;
   border-bottom-color: #d1d5db;
