@@ -7,6 +7,22 @@
  --c-text-secondary: rgba(0, 0, 0, 0.68);
  --c-text-tertiary: rgba(0, 0, 0, 0.48); */
 
+html.dark .shiki-light {
+  display: none;
+}
+
+html:not(.dark) .shiki-dark {
+  display: none;
+}
+
+.shiki-light {
+  background: #f2f2f2!important
+}
+
+.shiki-dark {
+  background: #181818!important
+}
+
 .prose {
   max-width: 65ch;
 }

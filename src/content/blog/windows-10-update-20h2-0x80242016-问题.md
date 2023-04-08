@@ -57,8 +57,8 @@ tags: ['windows10', 'problem', '技术']
         format N: /FS:FAT32
 
 7. Now, type bcdboot C:\windows /s N: /f UEFI and hit Enter. This command will repair your Bootloader.(My windows are located in D:\windows)  
-使用命令修复UEFI,使用的时候具体你windows在那个盘就用那个盘，刚刚创建的卷是哪个就输入哪个。比如我的windows在C:刚刚创建的卷为N:
-        我使用的命令如下
+使用命令修复UEFI,使用的时候具体你windows在那个盘就用那个盘，刚刚创建的卷是哪个就输入哪个。比如我的windows在C:刚刚创建的卷为N: 我使用的命令如下
+
         bcdboot C:\windows /s N: /f UEFI
 
 完成上面步骤的操作后尝试使用 `bootrec /fixboot`来进行修复。

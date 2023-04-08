@@ -19,6 +19,9 @@
     "@iconify-json/carbon": "^1.1.16",
     "@unocss/astro": "^0.50.6",
     "@unocss/reset": "^0.50.6",
+    "shiki": "^0.14.1",
+    "synckit": "^0.8.5",
+    "unist-util-visit": "^4.1.2",
     "unocss": "^0.50.6"
   }
 }

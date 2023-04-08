@@ -43,7 +43,7 @@ windows直接将根证书导入到受信任的根证书中即可
 #### 解决方式
 额外创建一个ext文件,内容少的也可以直接跟在后面
 ``subjectAltName = DNS: myserver.com``
-```
+```bash
 subjectAltName = @alt_names
 
 [alt_names]
