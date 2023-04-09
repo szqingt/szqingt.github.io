@@ -7,19 +7,19 @@
  --c-text-secondary: rgba(0, 0, 0, 0.68);
  --c-text-tertiary: rgba(0, 0, 0, 0.48); */
 
-html.dark .shiki-light {
+html.dark .vitesse-light {
   display: none;
 }
 
-html:not(.dark) .shiki-dark {
+html:not(.dark) .vitesse-dark {
   display: none;
 }
 
-.shiki-light {
+.vitesse-light {
   background: #f2f2f2!important
 }
 
-.shiki-dark {
+.vitesse-dark {
   background: #181818!important
 }
 

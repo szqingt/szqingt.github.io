@@ -8,6 +8,7 @@ specifiers:
   '@unocss/astro': ^0.50.6
   '@unocss/reset': ^0.50.6
   astro: ^2.2.1
+  remark-shiki-plugin: ^0.0.2
   shiki: ^0.14.1
   synckit: ^0.8.5
   unist-util-visit: ^4.1.2
@@ -23,6 +24,7 @@ devDependencies:
   '@iconify-json/carbon': 1.1.16
   '@unocss/astro': 0.50.6
   '@unocss/reset': 0.50.6
+  remark-shiki-plugin: 0.0.2
   shiki: 0.14.1
   synckit: 0.8.5
   unist-util-visit: 4.1.2
@@ -3130,6 +3132,14 @@ packages:
       mdast-util-to-hast: 12.3.0
       unified: 10.1.2
     dev: false
+
+  /remark-shiki-plugin/0.0.2:
+    resolution: {integrity: sha512-3lCKz/afZIIfIjlNL3Ukbq8ZZSPbO6or1H3Malxqa5WR47sTNfeTzD8FiCSTfQCR2xghhQJ1D7Kn8gsKg+yxqw==}
+    dependencies:
+      shiki: 0.14.1
+      synckit: 0.8.5
+      unist-util-visit: 4.1.2
+    dev: true
 
   /remark-smartypants/2.0.0:
     resolution: {integrity: sha512-Rc0VDmr/yhnMQIz8n2ACYXlfw/P/XZev884QU1I5u+5DgJls32o97Vc1RbK3pfumLsJomS2yy8eT4Fxj/2MDVA==}
