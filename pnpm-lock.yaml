@@ -9,9 +9,6 @@ specifiers:
   '@unocss/reset': ^0.50.6
   astro: ^2.2.1
   remark-shiki-plugin: ^0.0.2
-  shiki: ^0.14.1
-  synckit: ^0.8.5
-  unist-util-visit: ^4.1.2
   unocss: ^0.50.6
 
 dependencies:
@@ -25,9 +22,6 @@ devDependencies:
   '@unocss/astro': 0.50.6
   '@unocss/reset': 0.50.6
   remark-shiki-plugin: 0.0.2
-  shiki: 0.14.1
-  synckit: 0.8.5
-  unist-util-visit: 4.1.2
   unocss: 0.50.6
 
 packages:
