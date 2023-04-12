@@ -18,7 +18,8 @@ export default defineConfig({
     remarkPlugins: [
       [ShikiRemarkPlugin, {
         themes: ['vitesse-dark', 'vitesse-light'],
-        generateMultiCode: true
+        generateMultiCode: true,
+        highlightLines: true
       }]
     ]
 	},

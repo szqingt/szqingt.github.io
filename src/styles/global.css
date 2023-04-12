@@ -7,6 +7,14 @@
 	--c-text-primary: rgba(0, 0, 0, 0.78);
 	--c-text-secondary: rgba(0, 0, 0, 0.68);
 	--c-text-tertiary: rgba(0, 0, 0, 0.48);
+	--c-code-del-text: #845163;
+	--c-code-del-bg: #D793AD;
+	--c-code-del-border: #C25A82;
+	--c-code-ins-text: #3E7646;
+	--c-code-ins-bg: #74ad76;
+	--c-code-ins-border: #559056;
+	--c-code-mark-bg: #91A7E4;
+	--c-code-mark-border: #6584DA;
 }
 
 :root.dark {
@@ -17,6 +25,14 @@
 	--c-text-primary: rgba(255, 255, 255, 0.78);
 	--c-text-secondary: rgba(255, 255, 255, 0.68);
 	--c-text-tertiary: rgba(255, 255, 255, 0.48);
+	--c-code-del-text: #bb909f;
+	--c-code-del-bg: #471a2b;
+	--c-code-del-border: #D793AD;
+	--c-code-ins-text: #69b072;
+	--c-code-ins-bg: #1f3820;
+	--c-code-ins-border: #388a43;
+	--c-code-mark-bg: #192e66;
+	--c-code-mark-border: #445da7;
 }
 
 @media (prefers-color-scheme: dark) {

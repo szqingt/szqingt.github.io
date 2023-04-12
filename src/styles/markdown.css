@@ -23,6 +23,47 @@ html:not(.dark) .vitesse-dark {
   background: #181818!important
 }
 
+.shiki code {
+  display: flex;
+  flex-direction: column;
+}
+
+.shiki code .del {
+  background-color: var(--c-code-del-bg);
+  margin: 0 -1rem;
+  padding: 0 1rem;
+  border-left: 2px var(--c-code-del-border) solid;
+}
+
+.shiki code .ins {
+  background-color: var(--c-code-ins-bg);
+  margin: 0 -1rem;
+  padding: 0 1rem;
+  border-left: 2px var(--c-code-ins-border) solid;
+}
+
+.shiki code .mark {
+  background-color: var(--c-code-mark-bg);
+  margin: 0 -1rem;
+  padding: 0 1rem;
+  border-left: 2px var(--c-code-mark-border) solid;
+}
+
+.shiki code .del::before {
+  position: absolute;
+  left: 0.3rem;
+  content: "-";
+  color: var(--c-code-del-text);
+}
+
+.shiki code .ins::before {
+  position: absolute;
+  left: 0.3rem;
+  content: "+";
+  color: var(--c-code-ins-text);
+}
+
+
 .prose {
   max-width: 65ch;
 }
@@ -298,6 +339,7 @@ h6:focus .header-anchor {
   color: #111827;
 }
 .prose pre {
+  position: relative;
   color: #e5e7eb;
   overflow-x: auto;
   font-size: 0.875em;

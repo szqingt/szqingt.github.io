@@ -84,9 +84,10 @@ Sample text here...
 
 Syntax highlighting
 
-```js
+```js ins={2} del={3} mark={1}
 var foo = function (bar) {
-	return bar++;
+  return bar--;
+  return bar++;
 };
 
 console.log(foo(5));

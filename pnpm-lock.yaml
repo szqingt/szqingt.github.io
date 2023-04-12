@@ -8,7 +8,7 @@ specifiers:
   '@unocss/astro': ^0.50.6
   '@unocss/reset': ^0.50.6
   astro: ^2.2.1
-  remark-shiki-plugin: ^0.0.2
+  remark-shiki-plugin: ^0.0.4
   unocss: ^0.50.6
 
 dependencies:
@@ -21,7 +21,7 @@ devDependencies:
   '@iconify-json/carbon': 1.1.16
   '@unocss/astro': 0.50.6
   '@unocss/reset': 0.50.6
-  remark-shiki-plugin: 0.0.2
+  remark-shiki-plugin: 0.0.4
   unocss: 0.50.6
 
 packages:
@@ -3127,8 +3127,8 @@ packages:
       unified: 10.1.2
     dev: false
 
-  /remark-shiki-plugin/0.0.2:
-    resolution: {integrity: sha512-3lCKz/afZIIfIjlNL3Ukbq8ZZSPbO6or1H3Malxqa5WR47sTNfeTzD8FiCSTfQCR2xghhQJ1D7Kn8gsKg+yxqw==}
+  /remark-shiki-plugin/0.0.4:
+    resolution: {integrity: sha512-CWZ99Trxm3lH20/bgF5e7XoH8CBAZweA7891J+noH07G04asNguXuqnrvCLHMc3sTEHZRlQ9udkVcTWULMAxjQ==}
     dependencies:
       shiki: 0.14.1
       synckit: 0.8.5
