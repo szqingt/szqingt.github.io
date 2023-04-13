@@ -1,9 +1,12 @@
 ---
+import type { MarkdownHeading } from 'astro';
+
 export interface Props {
-  headings: any[]
+  headings: MarkdownHeading[];
+  title: string;
 }
 
-const { headings } = Astro.props;
+const { headings, title } = Astro.props;
 
 function depthClass(depth: number) {
 	const classList = ['', '', 'ml-2', 'ml-4', 'ml-6', 'ml-8', 'ml-10'];
@@ -11,7 +14,7 @@ function depthClass(depth: number) {
 }
 ---
 <>
-  <h2 class="font-semibold">Table of Contents</h2>
+  <a class="font-semibold text-5" href={`#${title}`}>Table of Contents</a>
   <ul class="mt-4 text-xs">
     {headings.map(({ depth, slug, text }) => (
       <li class="line-clamp-2 mt-3">

@@ -44,7 +44,7 @@ const { headings } = await post.render();
 	<div class="tags">
 		{tags.map((tag) => <Tag tag={tag} />)}
 	</div>
-	<h1 class="text-title text-2rem my-5">{title}</h1>
+	<h1 class="text-title text-2rem my-5 fw-800" id={title}>{title}</h1>
 	<span class="block min-w-10rem text-tertiary">
 		<FormattedDate date={pubDate} />
 		· <span>{simpleCalcReadingTime(body)}</span>
@@ -60,8 +60,8 @@ const { headings } = await post.render();
 	<div class="flex items-start">
 		{
 			!!headings.length && (
-				<aside class="doc-aside sticky top-20 shrink-0 pl-8 -mr-50 order-2">
-					<TableOfContents headings={headings} />
+				<aside class="hidden lg:block doc-aside sticky top-20 shrink-0 pl-8 -mr-50 order-2">
+					<TableOfContents title={title} headings={headings} />
 				</aside>
 			)
 		}

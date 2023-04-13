@@ -2,7 +2,7 @@
 import ToggleTheme from './ToggleTheme.astro';
 ---
 <style>
-	nav :global(a){
+	nav :global(a,button){
 		cursor: pointer;
     text-decoration: none;
     color: var(--c-text-primary);
@@ -11,7 +11,7 @@ import ToggleTheme from './ToggleTheme.astro';
     outline: none;
 	}
 
-	nav :global(a):hover {
+	nav :global(a:hover,button:hover) {
 		opacity: 1;
 	}
 </style>
