@@ -57,7 +57,7 @@ const { headings } = await post.render();
 		)
 	}
 	<hr />
-	<div class="flex items-start">
+	<div class="lg:flex items-start">
 		{
 			!!headings.length && (
 				<aside class="hidden lg:block doc-aside sticky top-20 shrink-0 pl-8 -mr-50 order-2">
@@ -65,7 +65,7 @@ const { headings } = await post.render();
 				</aside>
 			)
 		}
-		<article class="flex-grow prose">
+		<article class="prose">
 			<slot />
 		</article>
 	</div>
