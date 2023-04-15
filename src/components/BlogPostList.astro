@@ -32,7 +32,7 @@ const isSameYear = (a: Date | string | number, b: Date | string | number) => a &
       <>
         {!isSameYear(post.data.pubDate, posts[idx - 1]?.data.pubDate) &&
           <div class="relative h20 pointer-events-none">
-            <span class="text-8em op10 absolute left--1rem lg:left--3rem top--2rem font-bold leading-relaxed">
+            <span class="select-none text-8em op10 absolute left--1rem lg:left--3rem top--2rem font-bold leading-relaxed">
               {getYear(post.data.pubDate)}
             </span>
           </div>

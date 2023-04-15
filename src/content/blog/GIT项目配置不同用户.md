@@ -1,6 +1,6 @@
 ---
 title: 'GIT项目配置不同用户'
-pubDate: '2023-03-19 14:30:33'
+pubDate: '2022-06-20 10:55'
 description: 'git中配置存在过个用户如何处理'
 tags: ['git', '技术']
 ---
