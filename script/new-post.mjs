@@ -14,7 +14,7 @@ const POST_FIELDS = [
   },
   {
     name: 'pubDate',
-    default: '',
+    default: new Date(),
   },
   {
     name: 'tags',
@@ -22,7 +22,7 @@ const POST_FIELDS = [
   },
   {
     name: 'description',
-    default: '',
+    default: ' ',
   },
   {
     name: 'draft',
