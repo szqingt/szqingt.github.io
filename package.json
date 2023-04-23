@@ -11,16 +11,16 @@
     "new-post": "node script/new-post.mjs"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.18.2",
+    "@astrojs/mdx": "^0.18.4",
     "@astrojs/rss": "^2.3.2",
-    "@astrojs/sitemap": "^1.2.1",
-    "astro": "^2.2.1"
+    "@astrojs/sitemap": "^1.2.2",
+    "astro": "^2.3.0"
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.16",
-    "@unocss/astro": "^0.50.6",
-    "@unocss/reset": "^0.50.6",
-    "remark-shiki-plugin": "^0.0.4",
-    "unocss": "^0.50.6"
+    "@unocss/astro": "^0.50.8",
+    "@unocss/reset": "^0.50.8",
+    "remark-shiki-plugin": "^0.0.6",
+    "unocss": "^0.50.8"
   }
 }
