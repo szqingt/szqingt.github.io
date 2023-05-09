@@ -42,7 +42,7 @@ html:not(.dark) .vitesse-dark-code-container {
   display: inline-block;
   border-radius: 0.375rem;
   padding: 0.25rem 1rem;
-  color: var(--c-text-title);
+  color: var(--c-text-primary);
   background-color: #a1bfd185;
   z-index: 1;
   top: 1px;
@@ -84,9 +84,12 @@ html:not(.dark) .vitesse-dark-code-container {
 
 .shiki code .mark {
   background-color: var(--c-code-mark-bg);
-  margin: 0 -1rem;
-  padding: 0 1rem;
+  margin-left: -1rem;
+  padding-left: 1rem;
+  padding-right: calc(1rem + 1.1428571em);
   border-left: 2px var(--c-code-mark-border) solid;
+  display: inline-block;
+  min-width: calc(100% + 1.1428571em * 2);
 }
 
 .shiki code .del::before {
@@ -454,10 +457,7 @@ h6:focus .header-anchor {
   margin-top: 2em;
   margin-bottom: 2em;
 }
-.prose figure {
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
+
 .prose figure > * {
   margin-top: 0;
   margin-bottom: 0;
