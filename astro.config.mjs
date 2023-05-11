@@ -20,7 +20,7 @@ function customerHtmlHandle(code, html, theme) {
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://szqingt.github.io',
-	integrations: [mdx(), sitemap(), unocss()],
+	integrations: [mdx(), sitemap(), unocss({ injectReset: true })],
 	markdown: {
     // shikiConfig: {
     //   langs: [],
