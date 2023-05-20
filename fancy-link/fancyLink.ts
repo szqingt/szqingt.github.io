@@ -60,7 +60,9 @@ function getCaptureLinks(dir: URL, pages: { pathname: string }[], exclude: strin
 async function capture(path: string, href: string) {
   const fileName = resolve(path, `${simpleHash(href)}.png`)
   try {
-    await captureWebsite.file(href, fileName)
+    await captureWebsite.file(href, fileName, {
+      overwrite: true
+    })
   } catch (e) {
     console.error('captureWebsite error:', e);
   }
