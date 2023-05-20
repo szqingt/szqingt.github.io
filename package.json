@@ -8,7 +8,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "new-post": "node script/new-post.mjs"
+    "new-post": "node script/new-post.mjs",
+    "cs": "node script/capture-screen.mjs",
+    "test": "vitest"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.1",
@@ -18,9 +20,13 @@
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.16",
+    "@types/node": "^20.1.4",
     "@unocss/astro": "^0.51.12",
     "@unocss/reset": "^0.51.12",
+    "capture-website": "^3.2.0",
+    "htmlparser2": "^9.0.0",
     "remark-shiki-plugin": "^0.0.6",
-    "unocss": "^0.51.12"
+    "unocss": "^0.51.12",
+    "vitest": "^0.31.0"
   }
 }

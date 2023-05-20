@@ -1,0 +1,28 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`getHtmlPageAllValidUrlForATage > getHtmlPageAllValidUrlForATage should collect page all Url 1`] = `
+[
+  {
+    "attribs": {
+      "data-is-fancy-link": "true",
+      "href": "https://google.com",
+    },
+    "href": "https://google.com",
+    "name": "google",
+  },
+  {
+    "attribs": {
+      "href": "https://bing.com",
+    },
+    "href": "https://bing.com",
+    "name": "bing",
+  },
+  {
+    "attribs": {
+      "href": "https://google.com",
+    },
+    "href": "https://google.com",
+    "name": "google1",
+  },
+]
+`;

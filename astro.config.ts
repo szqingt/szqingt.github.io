@@ -1,10 +1,11 @@
-import { defineConfig } from 'astro/config';
-import unocss from "@unocss/astro";
-import mdx from '@astrojs/mdx';
-import ShikiRemarkPlugin from 'remark-shiki-plugin';
-import sitemap from '@astrojs/sitemap';
+import { defineConfig } from 'astro/config'
+import unocss from "@unocss/astro"
+import mdx from '@astrojs/mdx'
+import ShikiRemarkPlugin from 'remark-shiki-plugin'
+import sitemap from '@astrojs/sitemap'
+import fancyLinkIntegration from './fancy-link/fancyLink'
 
-function customerHtmlHandle(code, html, theme) {
+function customerHtmlHandle(code: string, html: string, theme: string) {
   const titleReg = /(?:\s|^)title\s*=\s*(["'])(.*?)(?<!\\)\1/
   const match = (code.meta || '').match(titleReg)
   const [_, __, titleValue] = Array.from(match || [])
@@ -20,7 +21,7 @@ function customerHtmlHandle(code, html, theme) {
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://szqingt.github.io',
-	integrations: [mdx(), sitemap(), unocss({ injectReset: true })],
+	integrations: [mdx(), sitemap(), unocss({ injectReset: true }), fancyLinkIntegration()],
 	markdown: {
     // shikiConfig: {
     //   langs: [],

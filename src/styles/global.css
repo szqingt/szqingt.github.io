@@ -1,6 +1,7 @@
 
 :root.light {
 	--c-bg: #fff;
+	--c-bg-2: #e9e9e9;
 	--c-scrollbar: #eee;
 	--c-scrollbar-hover: #bbb;
 	--c-text-title: rgba(0, 0, 0, 0.88);
@@ -19,6 +20,7 @@
 
 :root.dark {
 	--c-bg: #050505;
+	--c-bg-2: #202020;
 	--c-scrollbar: #111;
 	--c-scrollbar-hover: #222;
 	--c-text-title: rgba(255, 255, 255, 0.88);

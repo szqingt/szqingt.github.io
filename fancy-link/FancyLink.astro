@@ -1,0 +1,40 @@
+---
+import { simpleHash } from './utils'
+export interface Props {
+	href: string
+  fancyLinkPaht?: string
+  position?: 'up' | 'down'
+}
+
+const { href, fancyLinkPaht = '/__fancyLinkPreview', position = 'up' } = Astro.props
+const isDevMode = import.meta.env.MODE === 'development'
+const previewPath = `${fancyLinkPaht}/${simpleHash(href)}.png`
+---
+<style>
+  .fancy-link-wrap {
+    position: relative;
+  }
+ .fancy-link-wrap .fancy-link:hover +.popover-container{
+  display: block;
+ }
+ .fancy-link-wrap .popover-container img {
+  margin: 0;
+ }
+ .popover-container {
+  transform: translateX(50%);
+  background-color: var(--c-bg);
+ }
+ .popover-container.up {
+  bottom: 1.5rem;
+ }
+ .popover-container.down {
+  top: 1.5rem;
+ }
+</style>
+<span class="fancy-link-wrap">
+  <a class="fancy-link" data-is-fancy-link href={href} target="_blank"><slot /></a>
+  <div class:list={[position]} class="popover-container hidden rounded-2 text-center p-2 absolute right-50% w80 h50">
+    {isDevMode && <span>Fancy Link Only work in build!</span>}
+    {!isDevMode && <img class="rounded-2" src={previewPath} alt="link preview"> }
+  </div>
+</span>
