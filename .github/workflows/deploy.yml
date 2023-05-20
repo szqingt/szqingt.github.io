@@ -28,6 +28,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16"
+          # need add cache dep , when use Puppeteer is have some problem
       - name: Install
         run: pnpm install
       - name: Build
