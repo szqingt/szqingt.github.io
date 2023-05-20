@@ -1,11 +1,12 @@
 ---
 title: 在 Astro 实现链接预览
 createDate: Sun May 14 2023 22:21:11 GMT+0800 (中国标准时间)
-pubDate: Sun May 14 2023 22:21:11 GMT+0800 (中国标准时间)
-tags: ['技术', 'Github Action', Astro]
+pubDate: Sat May 20 2023 19:04:06 GMT+0800 (China Standard Time)
+tags: ['技术', 'Github Action', 'Astro']
 description: '在博客中通过 Action 生成链接的预览图片，实现链接预览！'
 draft: false
 ---
+import FancyLink from '../../../fancy-link/FancyLink.astro'
 
 ## 起因
 
@@ -42,8 +43,17 @@ do it。
 在 astro 组件中，可以直接使用 astro 编写一个显示的UI组件即可。在 `.md` 文件中的链接就需要~~自定义插件~~( todo )处理了
 
 ## Fancy Link Test
-example google  
-[google](https://google.com)
+example google & myblog
+
+<FancyLink href='https://google.com'>google</FancyLink>
+
+<FancyLink href='https://szqingt.github.io'>szqingt</FancyLink>
+
+```html
+<FancyLink href='https://google.com'>google</FancyLink>
+
+<FancyLink href='https://szqingt.github.io'>szqingt</FancyLink>
+```
 
 ## more todo
 
