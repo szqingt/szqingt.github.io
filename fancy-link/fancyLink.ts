@@ -76,7 +76,6 @@ function FancyLink(options?: Options): AstroIntegration {
     name: 'collect-link-data',
     hooks: {
       async "astro:build:done"({ dir, pages }) {
-        console.log('pages====',pages);
         const captureLinks = getCaptureLinks(dir, pages, exclude);
         const _outPath = resolve(dir.pathname, outPath)
         for (const {href} of captureLinks) {
