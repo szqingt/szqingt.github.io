@@ -1,6 +1,5 @@
 ---
 import ToggleTheme from './ToggleTheme.astro';
-import FancyLink from '../../fancy-link/FancyLink.astro';
 ---
 <style>
 	nav > * {
@@ -21,10 +20,7 @@ import FancyLink from '../../fancy-link/FancyLink.astro';
 		<a href='/' class="i-custom:site-logo text-2rem"></a>
 	</h2>
 	<nav class="p-2rem flex justify-end items-center gap-5">
-		<FancyLink href="https://github.com/szqingt" position="down">
-			<span class="i-carbon-logo-github op-60 hover:op-100"></span>
-		</FancyLink>
-		<!-- <a href="https://github.com/szqingt" target="_blank" title="github" class="i-carbon-logo-github"></a> -->
+		<a href="https://github.com/szqingt" target="_blank" title="github" class="i-carbon-logo-github"></a>
 		<a href="/rss.xml" target="_blank" title="RSS" class="i-carbon-rss"></a>
 		<ToggleTheme />
 	</nav>
