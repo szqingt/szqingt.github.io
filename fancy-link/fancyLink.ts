@@ -2,7 +2,7 @@ import type { AstroIntegration } from "astro"
 import { readFileSync, existsSync } from 'node:fs'
 import { resolve, relative } from 'node:path'
 import { parseDocument, DomUtils } from "htmlparser2"
-import { isValidUrl, simpleHash } from "./utils"
+import { isValidUrl, previewFileName } from "./utils"
 import captureWebsite from "capture-website"
 
 interface Options {
@@ -58,11 +58,17 @@ function getCaptureLinks(dir: URL, pages: { pathname: string }[], exclude: strin
 }
 
 async function capture(path: string, href: string) {
-  const fileName = resolve(path, `${simpleHash(href)}.png`)
+  const fileName = resolve(path, `${previewFileName(href)}.png`)
+  const darkFileName = resolve(path, `${previewFileName(href, true)}.png`)
   try {
-    await captureWebsite.file(href, fileName, {
-      overwrite: true
-    })
+    await Promise.allSettled([
+        captureWebsite.file(href, fileName, {
+        overwrite: true
+      }), captureWebsite.file(href, darkFileName, {
+        overwrite: true,
+        darkMode: true
+      })
+    ])
   } catch (e) {
     console.error('captureWebsite error:', e);
   }

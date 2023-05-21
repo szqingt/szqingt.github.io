@@ -19,3 +19,8 @@ export function simpleHash(str: string) {
   }
   return hash.toString(16);
 }
+
+export function previewFileName(href: string, dark: boolean = false) {
+  const darkPrefix = 'dark:'
+  return simpleHash(dark ? darkPrefix + href : href)
+}

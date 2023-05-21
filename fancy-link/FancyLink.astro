@@ -1,5 +1,5 @@
 ---
-import { simpleHash } from './utils'
+import { previewFileName } from './utils'
 export interface Props {
 	href: string
   fancyLinkPaht?: string
@@ -8,7 +8,8 @@ export interface Props {
 
 const { href, fancyLinkPaht = '/__fancyLinkPreview', position = 'up' } = Astro.props
 const isDevMode = import.meta.env.MODE === 'development'
-const previewPath = `${fancyLinkPaht}/${simpleHash(href)}.png`
+const previewPath = `${fancyLinkPaht}/${previewFileName(href)}.png`
+const darkPreviewPath = `${fancyLinkPaht}/${previewFileName(href, true)}.png`
 ---
 <style>
   .fancy-link-wrap {
@@ -30,11 +31,18 @@ const previewPath = `${fancyLinkPaht}/${simpleHash(href)}.png`
  .popover-container.down {
   top: 1.5rem;
  }
+ :global(.light) .light-preview {
+  display: block;
+ }
+ :global(.dark) .dark-preview {
+  display: block;
+ }
 </style>
 <span class="fancy-link-wrap">
   <a class="fancy-link" data-is-fancy-link href={href} target="_blank"><slot /></a>
-  <div class:list={[position]} class="popover-container hidden rounded-2 text-center p-2 absolute right-50% w100 h70">
+  <div class:list={[position]} class="popover-container hidden rounded-2 text-center p-2 absolute right-50% w100 h62">
     {isDevMode && <span>Fancy Link Only work in build!</span>}
-    {!isDevMode && <img class="rounded-2" src={previewPath} alt="link preview"> }
+    {!isDevMode && <img loading="lazy" class="light-preview hidden rounded-2" src={previewPath} alt="link preview"> }
+    {!isDevMode && <img loading="lazy" class="dark-preview hidden rounded-2" src={darkPreviewPath} alt="link preview"> }
   </div>
 </span>
