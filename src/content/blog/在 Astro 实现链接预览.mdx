@@ -10,7 +10,7 @@ import FancyLink from '../../../fancy-link/FancyLink.astro'
 
 ## 起因
 
-在 twitter 上看到 <FancyLink href='https://cali.so'>cali castle</FancyLink> 大佬直播实现了一个有趣的功能，这个功能的来源是 <FancyLink href='https://uiw.tf/link-preview'>uiwtf</FancyLink>。
+在 twitter 上看到 <Link href='https://cali.so'>cali castle</Link> 大佬直播实现了一个有趣的功能，这个功能的来源是 <Link href='https://uiw.tf/link-preview'>uiwtf</Link>。
 在博客中通常包含许多链接以提供额外的上下文或进一步阅读。但是，打开外部链接可能会打乱专注的阅读，导致我们被其他所吸引走。
 如果可以在悬停和时显示链接的预览，应该能更加专注于内容本身吧！
 我觉得这会让阅读带来一个不错体验的功能，大佬使用的 `next.js` 那一套。我刚用 astro 也就没法直接拿来用了，就尝试看能否在我的博客上也加上这个功能！
@@ -30,12 +30,12 @@ do it。
 ```
 
 那接下里我们就可以通过解析这些内容，从而拿到页面中的超链接了。当然自己写 html parse 是不可能的！直接就上 npm 上开找！
-<FancyLink href='https://www.npmjs.com/package/htmlparser2'>htmlparser2</FancyLink> 是一个能快速解析 html 的包，我们熟知的 <FancyLink href='https://github.com/cheeriojs/cheerio'>cheerio</FancyLink> 
+<Link href='https://www.npmjs.com/package/htmlparser2'>htmlparser2</Link> 是一个能快速解析 html 的包，我们熟知的 <Link href='https://github.com/cheeriojs/cheerio'>cheerio</Link> 
 就是用的这个。  
 有了解析库那就简单了，这个库也有提供简易的 DOM 操作相关的api。就类似平时操作原生 DOM 一样过滤出我们需要的内容能拿到页面中所有的超链接了。
 
 ### 获取截图
-获取截图也比较容易实现通过一些无头的浏览器，目前主流的是 Playwright、Puppeteer，我这里里直接用的 <FancyLink href='https://www.npmjs.com/package/capture-website'>capture-website</FancyLink> 使用也比较容易
+获取截图也比较容易实现通过一些无头的浏览器，目前主流的是 Playwright、Puppeteer，我这里里直接用的 <Link href='https://www.npmjs.com/package/capture-website'>capture-website</Link> 使用也比较容易
 
 ### 展示内容 
 
@@ -45,14 +45,14 @@ do it。
 ## Fancy Link Test
 example google & myblog
 
-<FancyLink href='https://google.com'>google</FancyLink>
+<Link href='https://google.com'>google</Link>
 
-<FancyLink href='https://szqingt.github.io'>szqingt blog</FancyLink>
+<Link href='https://szqingt.github.io'>szqingt blog</Link>
 
 ```html
-<FancyLink href='https://google.com'>google</FancyLink>
+<Link href='https://google.com'>google</Link>
 
-<FancyLink href='https://szqingt.github.io'>szqingt</FancyLink>
+<Link href='https://szqingt.github.io'>szqingt</Link>
 ```
 
 ## more todo
