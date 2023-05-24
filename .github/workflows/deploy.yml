@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
+      - name: add chinese fonts
+        run: sudo apt-get install fonts-wqy-zenhei
       - name: Setup PNPM
         uses: pnpm/action-setup@v2.2.2
         with:
