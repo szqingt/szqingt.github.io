@@ -39,10 +39,10 @@ const darkPreviewPath = `${fancyLinkPaht}/${previewFileName(href, true)}.png`
  }
 </style>
 <span class="fancy-link-wrap">
-  <a class="fancy-link" data-is-fancy-link href={href} target="_blank"><slot /></a>
-  <div class:list={[position]} class="popover-container hidden rounded-2 text-center p-2 absolute right-50% w100 h62">
-    {isDevMode && <span>Fancy Link Only work in build!</span>}
-    {!isDevMode && <img loading="lazy" class="light-preview hidden rounded-2" src={previewPath} alt="link preview"> }
-    {!isDevMode && <img loading="lazy" class="dark-preview hidden rounded-2" src={darkPreviewPath} alt="link preview"> }
+  <a class="fancy-link" data-is-fancy-link href={href} target="_blank" rel="noopener"><slot /></a>
+  <span class:list={[position]} class="popover-container hidden rounded-2 text-center p-2 absolute right-50% w100 h62">
+    { isDevMode && <span>Fancy Link Only work in build!</span> }
+    { !isDevMode && <img loading="lazy" class="light-preview hidden rounded-2" src={previewPath} alt="link preview"> }
+    { !isDevMode && <img loading="lazy" class="dark-preview hidden rounded-2" src={darkPreviewPath} alt="link preview"> }
   </div>
 </span>

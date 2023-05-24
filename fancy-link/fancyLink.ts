@@ -79,7 +79,7 @@ function FancyLink(options?: Options): AstroIntegration {
   const { outPath = '__fancyLinkPreview', exclude = [] } = options || {}
 
   return {
-    name: 'collect-link-data',
+    name: 'fancy-link',
     hooks: {
       async "astro:build:done"({ dir, pages }) {
         const captureLinks = getCaptureLinks(dir, pages, exclude);
