@@ -1,0 +1,100 @@
+<template is:raw id="counter-template">
+  <style>
+    .counter {
+      display: flex;
+      align-items: center;
+    }
+    .counter #count {
+      font-size: 5.75em;
+      font-weight: bolder;
+    }
+    .counter button {
+      background-color: white;
+      border-radius: 1.8rem;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 1.5rem;
+      height: 1.8rem;
+      line-height: 1.8rem;
+      margin: 0 5px;
+      padding: 0;
+      text-align: center;
+      user-select: none;
+      width: 1.8rem;
+    }
+    .counter button:hover#add {
+      background-color: #4099ff;
+    }
+    .counter button:hover#sub {
+      background-color: #db5a3c;
+    }
+  </style>
+  <div class="counter">
+    <button id="add">+</button>
+    <span id="count">0</span>
+    <button id="sub">-</button>
+  </div>
+  <slot>
+    <p>web counter</p>
+  </slot>
+</template>
+
+<web-counter count="10">
+  <p>slot example counter</p>
+</web-counter>
+
+<script>
+  class CounterComponent extends HTMLElement {
+    addEl: null | HTMLElement;
+    subEl: null | HTMLElement;
+    countEl: null | HTMLElement;
+    constructor() {
+      super();
+      // 深度克隆一份template
+      const template = document.getElementById(
+        "counter-template"
+      ) as HTMLTemplateElement;
+      const dom = template.content.cloneNode(true);
+      const shadowRoot = this.attachShadow({ mode: "open" });
+      shadowRoot.appendChild(dom);
+      this.addEl = shadowRoot.getElementById("add");
+      this.subEl = shadowRoot.getElementById("sub");
+      this.countEl = shadowRoot.getElementById("count");
+      this.render();
+    }
+
+    // 获取count
+    get count() {
+      return this.getAttribute("count")
+        ? Number(this.getAttribute("count"))
+        : 0;
+    }
+    // 设置count值
+    set count(count) {
+      this.setAttribute("count", String(count));
+      this.render();
+    }
+    connectedCallback() {
+      // 当 custom element首次被插入 DOM 时
+      this.addEl?.addEventListener("click", () => {
+        this.count = this.count + 1;
+      });
+      this.subEl?.addEventListener("click", () => {
+        this.count = this.count - 1;
+      });
+    }
+
+    disconnectedCallback() {
+      // 当 custom element 从 DOM 中删除时
+      console.log("web-conter disconnectedCallback");
+    }
+
+    render() {
+      if (this.countEl) {
+        this.countEl.innerText = String(this.count);
+      }
+    }
+  }
+  // 注册
+  window.customElements.define("web-counter", CounterComponent);
+</script>

@@ -1,0 +1,140 @@
+---
+title: Web Component 体验
+createDate: Sun May 28 2023 11:36:07 GMT+0800 (中国标准时间)
+pubDate: Sun May 28 2023 19:55:05 GMT+0800 (China Standard Time)
+tags: ["Web Component", '前端']
+description:  尝试 Web Component 编写组件
+draft: false
+---
+import Counter from '../../components/WebComponentCounter.astro'
+import Link from '../../../fancy-link/FancyLink.astro'
+
+![Web Component](/images/posts/web_component.webp)
+
+## Web Component 是啥
+
+> Web Component 是一套不同的技术，允许您创建可重用的定制元素（它们的功能封装在您的代码之外）并且在您的 web 应用中使用它们。 -- <Link href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Component#%E6%A6%82%E5%BF%B5%E5%92%8C%E4%BD%BF%E7%94%A8">Web Component | MDN</Link>
+
+在 Vue React Angular 下开发，组件化已经是必备的内容了。还有 Antd ElementUi 等 ui 组件库让我们开发也是越来越简单了，但是是否能不用框架进行组件化开发呢？那 web Component 就是解决方案。  
+
+Web Component 是 W3C 标准支持的组件化方案，它可以让我们可以编写可复用的组件，它并不是一项单一的技术，而是由三大部分组成
+
+- Template: Template 生成 DOM
+- Shadow DOM：Shadow DOM 来隔离CSS样式
+- Custom Elements: Custom Elements 来自定义元素，继承自 HTMLElement ，HTMLElement 是 DOM API 里面的一个类，继承该类就有了html 的常见属性和 API
+
+## 使用 Web Component
+
+开始实现一个简单的 Web Component 组件体验下，一个可以简单计数的 Counter 组件。
+1. 定义模板
+```html
+<template id="counter-template">
+  <style>
+    /* ... */
+  </style>
+  <div class="counter">
+    <button id="add">+</button>
+    <span id="count">0</span>
+    <button id="sub">-</button>
+  </div>
+  <slot>
+    <p>web counter</p>
+  </slot>
+</template>
+```
+
+2. 编写组件逻辑
+
+```ts
+class CounterComponent extends HTMLElement {
+  addEl: null | HTMLElement
+  subEl: null | HTMLElement
+  countEl: null | HTMLElement
+  constructor() {
+    super();
+    // 深度克隆一份template
+    const template = document.getElementById("counter-template") as HTMLTemplateElement;
+    const dom = template.content.cloneNode(true);
+    // open: 可以从 js 外部访问 shadow root 节点
+    // closed: 拒绝从 js 外部访问 shadow root 节点
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    shadowRoot.appendChild(dom);
+    this.addEl = shadowRoot.getElementById('add');
+    this.subEl = shadowRoot.getElementById('sub');
+    this.countEl = shadowRoot.getElementById('count');
+    this.render();
+  }
+
+  // 获取count
+  get count() {
+    return this.getAttribute("count") ? Number(this.getAttribute("count")) : 0;
+  }
+  // 设置count值
+  set count(count) {
+    this.setAttribute("count", String(count));
+    this.render();
+  }
+  connectedCallback() {
+    // 当 custom element首次被插入 DOM 时
+    this.addEl?.addEventListener("click", () => {
+      this.count = this.count + 1;
+    });
+    this.subEl?.addEventListener("click", () => {
+      this.count = this.count - 1;
+    });
+  }
+
+  disconnectedCallback() {
+    // 当 custom element 从 DOM 中删除时
+    console.log('web-conter disconnectedCallback');
+  }
+
+  render() {
+    if (this.countEl) {
+      this.countEl.innerText = String(this.count)
+    }
+  }
+}
+
+```
+
+3. 注册使用
+
+```ts
+// 注册
+window.customElements.define("web-conter", CounterComponent);
+```
+```html
+<!-- 使用 -->
+<web-counter count="10">
+  <p slot="desc">slot example counter</p>
+</web-counter>
+```
+4. example
+
+<Counter />
+
+
+
+## 最后
+
+已经有 Vue、React 了 Web Component 那它的有啥好处呢？
+1. 标准支持 w3c 标准，主流浏览器支持
+2. 技术栈无关 可以在任何框架使用
+3. 开箱即用 不需要引入其他依赖
+4. 天然的样式隔离 
+
+当然目前也存在一些问题
+1. 兼容性问题 <Link href="https://caniuse.com/?search=customElements">customElements</Link>
+2. 书写较为繁琐，需要自己进行原生dom操作
+3. 需要自己进行状态管理，处理重新渲染逻辑
+
+想要在高度工程化的今天直接使用的话，开发体验并十分不友好还是需要更多的生态。
+
+### Web Component 相关框架
+
+- [Lit](https://github.com/lit/lit) 是 Google 开源的一个用于构建快速、轻量级的 Web Components 库
+- [omi](https://github.com/Tencent/omi) 是一个前端跨框架跨平台框架
+- [stencil](https://github.com/ionic-team/stencil) 是一个用于创建可复用、可扩展组件库的库
+
+
