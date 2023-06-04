@@ -1,13 +1,23 @@
-<button toggle-theme-button class="dark:i-carbon-moon i-carbon-sun" />
+
+<button toggle-theme-button class="dark:i-carbon-moon i-carbon-sun"></button>
 <script>
-  import { toggleTheme } from '../utils';
-  // 在页面上找到所有带有 `alert` 类的按钮。
-  const buttons = document.querySelectorAll('[toggle-theme-button]');
+  import { toggleTheme, getThemeClassWithMode, getThemeMode } from "../utils";
+  // 在页面上找到所有带 toggle theme 类的按钮。
+  const buttons = document.querySelectorAll("[toggle-theme-button]");
 
   // 处理每个按钮上的点击事件。
   buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      toggleTheme();
+    button.addEventListener("click", () => {
+      toggleTheme(updateFancyLinkMode);
     });
   });
+
+  function updateFancyLinkMode() {
+    const fancyLinks = document.querySelectorAll("fancy-link");
+    const theme = getThemeClassWithMode(getThemeMode())
+    fancyLinks.forEach((link) => {
+      link.setAttribute('mode', theme)
+    });
+  }
+  updateFancyLinkMode()
 </script>
