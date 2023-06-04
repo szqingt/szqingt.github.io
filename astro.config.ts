@@ -4,7 +4,7 @@ import mdx from '@astrojs/mdx'
 import ShikiRemarkPlugin from 'remark-shiki-plugin'
 import rehypeExternalLinks from 'rehype-external-links'
 import sitemap from '@astrojs/sitemap'
-import fancyLinkIntegration from './fancy-link/fancyLink'
+import fancyLinkIntegration from 'fancy-link'
 
 function customerHtmlHandle(code: any, html: string, theme: string) {
   const titleReg = /(?:\s|^)title\s*=\s*(["'])(.*?)(?<!\\)\1/

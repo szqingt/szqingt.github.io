@@ -5,12 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "pnpm --filter fancy-link build && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "new-post": "node script/new-post.mjs",
-    "cs": "node script/capture-screen.mjs",
-    "test": "vitest"
+    "new-post": "node script/new-post.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.2",
@@ -24,10 +22,9 @@
     "@unocss/astro": "^0.51.13",
     "@unocss/reset": "^0.51.13",
     "capture-website": "^3.2.0",
-    "htmlparser2": "^9.0.0",
     "rehype-external-links": "^2.1.0",
     "remark-shiki-plugin": "^0.0.6",
-    "unocss": "^0.51.13",
-    "vitest": "^0.31.1"
+    "fancy-link": "workspace:*",
+    "unocss": "^0.51.13"
   }
 }

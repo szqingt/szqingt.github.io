@@ -1,7 +1,7 @@
 import { describe, it, expect, afterEach } from 'vitest'
 import { resolve } from 'node:path'
 import { existsSync, rmSync, readFileSync } from 'node:fs'
-import FancyLink, { getPageAllValidATageInfo } from './fancyLink'
+import FancyLink, { getPageAllValidFancyLinkInfo } from '../src/fancyLink'
 import { readdirSync } from 'node:fs'
 
 const TEST_DATA = [
@@ -25,7 +25,7 @@ const TEST_DATA = [
 
 describe('getHtmlPageAllValidUrlForATage', () => {
   it('getHtmlPageAllValidUrlForATage should collect page all Url', () => {
-    const allUrl = getPageAllValidATageInfo(resolve(__dirname, './index.html'))
+    const allUrl = getPageAllValidFancyLinkInfo(resolve(__dirname, './index.html'))
     expect(allUrl).toMatchSnapshot()
   })
 })

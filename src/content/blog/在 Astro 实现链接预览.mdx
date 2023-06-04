@@ -6,11 +6,10 @@ tags: ['技术', 'Github Action', 'Astro']
 description: '在博客中通过 Action 生成链接的预览图片，实现链接预览！'
 draft: false
 ---
-import Link from '../../../fancy-link/FancyLink.astro'
 
 ## 起因
 
-在 twitter 上看到 <Link href='https://cali.so'>cali castle</Link> 大佬直播实现了一个有趣的功能，这个功能的来源是 <Link href='https://uiw.tf/link-preview'>uiwtf</Link>。
+在 twitter 上看到 <fancy-link href='https://cali.so'>cali castle</fancy-link> 大佬直播实现了一个有趣的功能，这个功能的来源是 <fancy-link href='https://uiw.tf/fancy-link-preview'>uiwtf</fancy-link>。
 在博客中通常包含许多链接以提供额外的上下文或进一步阅读。但是，打开外部链接可能会打乱专注的阅读，导致我们被其他所吸引走。
 如果可以在悬停和时显示链接的预览，应该能更加专注于内容本身吧！
 我觉得这会让阅读带来一个不错体验的功能，大佬使用的 `next.js` 那一套。我刚用 astro 也就没法直接拿来用了，就尝试看能否在我的博客上也加上这个功能！
@@ -30,29 +29,29 @@ do it。
 ```
 
 那接下里我们就可以通过解析这些内容，从而拿到页面中的超链接了。当然自己写 html parse 是不可能的！直接就上 npm 上开找！
-<Link href='https://www.npmjs.com/package/htmlparser2'>htmlparser2</Link> 是一个能快速解析 html 的包，我们熟知的 <Link href='https://github.com/cheeriojs/cheerio'>cheerio</Link> 
+<fancy-link href='https://www.npmjs.com/package/htmlparser2'>htmlparser2</fancy-link> 是一个能快速解析 html 的包，我们熟知的 <fancy-link href='https://github.com/cheeriojs/cheerio'>cheerio</fancy-link> 
 就是用的这个。  
 有了解析库那就简单了，这个库也有提供简易的 DOM 操作相关的api。就类似平时操作原生 DOM 一样过滤出我们需要的内容能拿到页面中所有的超链接了。
 
 ### 获取截图
-获取截图也比较容易实现通过一些无头的浏览器，目前主流的是 Playwright、Puppeteer，我这里里直接用的 <Link href='https://www.npmjs.com/package/capture-website'>capture-website</Link> 使用也比较容易
+获取截图也比较容易实现通过一些无头的浏览器，目前主流的是 Playwright、Puppeteer，我这里里直接用的 <fancy-link href='https://www.npmjs.com/package/capture-website'>capture-website</fancy-link> 使用也比较容易
 
 ### 展示内容 
 
 对于前面收集的链接可能需要一些处理，比如哪些是需要预览的链接。生成出来的预览图片如何关联页面的链接等
 在 astro 组件中，可以直接使用 astro 编写一个显示的UI组件即可。在 `.md` 文件中的链接就需要~~自定义插件~~( todo )处理了
 
-## Fancy Link Test
+## Fancy fancy-link example
 example google & myblog
 
-<Link href='https://google.com'>google</Link>
+<fancy-link href='https://google.com'>google</fancy-link>
 
-<Link href='https://szqingt.github.io'>szqingt blog</Link>
+<fancy-link href='https://szqingt.github.io'>szqingt blog</fancy-link>
 
 ```html
-<Link href='https://google.com'>google</Link>
+<fancy-link href='https://google.com'>google</fancy-link>
 
-<Link href='https://szqingt.github.io'>szqingt</Link>
+<fancy-link href='https://szqingt.github.io'>szqingt</fancy-link>
 ```
 
 ## more todo

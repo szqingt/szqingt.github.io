@@ -7,13 +7,12 @@ description:  尝试 Web Component 编写组件
 draft: false
 ---
 import Counter from '../../components/WebComponentCounter.astro'
-import Link from '../../../fancy-link/FancyLink.astro'
 
 ![Web Component](/images/posts/web_component.webp)
 
 ## Web Component 是啥
 
-> Web Component 是一套不同的技术，允许您创建可重用的定制元素（它们的功能封装在您的代码之外）并且在您的 web 应用中使用它们。 -- <Link href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_components#%E6%A6%82%E5%BF%B5%E5%92%8C%E4%BD%BF%E7%94%A8">Web Component | MDN</Link>
+> Web Component 是一套不同的技术，允许您创建可重用的定制元素（它们的功能封装在您的代码之外）并且在您的 web 应用中使用它们。 -- <fancy-link href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_components#%E6%A6%82%E5%BF%B5%E5%92%8C%E4%BD%BF%E7%94%A8">Web Component | MDN</fancy-link>
 
 在 Vue React Angular 下开发，组件化已经是必备的内容了。还有 Antd ElementUi 等 ui 组件库让我们开发也是越来越简单了，但是是否能不用框架进行组件化开发呢？那 web Component 就是解决方案。  
 
@@ -125,7 +124,7 @@ window.customElements.define("web-conter", CounterComponent);
 4. 天然的样式隔离 
 
 当然目前也存在一些问题
-1. 兼容性问题 <Link href="https://caniuse.com/?search=customElements">customElements</Link>
+1. 兼容性问题 <fancy-link href="https://caniuse.com/?search=customElements">customElements</fancy-link>
 2. 书写较为繁琐，需要自己进行原生dom操作
 3. 需要自己进行状态管理，处理重新渲染逻辑
 
