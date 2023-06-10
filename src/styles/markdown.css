@@ -53,8 +53,8 @@ html:not(.dark) .vitesse-dark-code-container {
   border-bottom-right-radius: 0;
 }
 
-.vitesse-dark-code-container pre,
-.vitesse-light-code-container pre {
+.vitesse-dark-code-container.has-title pre,
+.vitesse-light-code-container.has-title pre {
   border-top-left-radius: 0!important;
 }
 
@@ -458,10 +458,6 @@ h6:focus .header-anchor {
   margin-bottom: 2em;
 }
 
-.prose figure > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
 .prose h2 code {
   font-size: 0.875em;
 }

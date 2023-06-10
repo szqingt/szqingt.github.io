@@ -8,7 +8,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "prebuild": "node ./scripts/prebuilt.mjs",
-    "build": "pnpm prebuild && tsup --format esm --platform node",
+    "build": "pnpm prebuild && tsup --format esm --dts --platform node",
     "dev": "pnpm prebuild && tsup --format esm --watch",
     "test": "vitest"
   },

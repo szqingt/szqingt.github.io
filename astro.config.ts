@@ -1,28 +1,16 @@
 import { defineConfig } from 'astro/config'
 import unocss from "@unocss/astro"
 import mdx from '@astrojs/mdx'
-import ShikiRemarkPlugin from 'remark-shiki-plugin'
 import rehypeExternalLinks from 'rehype-external-links'
 import sitemap from '@astrojs/sitemap'
 import fancyLinkIntegration from 'fancy-link'
-
-function customerHtmlHandle(code: any, html: string, theme: string) {
-  const titleReg = /(?:\s|^)title\s*=\s*(["'])(.*?)(?<!\\)\1/
-  const match = (code.meta || '').match(titleReg)
-  const [_, __, titleValue] = Array.from(match || [])
-  if (titleValue) {
-    return `<figure class="${theme}-code-container">
-      <figcaption class="header"><span class="tite">${titleValue}</span></figcaption>${html}
-    </figure>`
-  }
-  
-  return html
-} 
+import markdownCodeCopy from './integrations/copyButton'
+import ShikiRemarkPlugin from 'remark-shiki-plugin'
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://szqingt.github.io',
-	integrations: [mdx(), sitemap(), unocss({ injectReset: true }), fancyLinkIntegration()],
+	integrations: [markdownCodeCopy(), mdx(), sitemap(), unocss({ injectReset: true }), fancyLinkIntegration()],
 	markdown: {
     // shikiConfig: {
     //   langs: [],
@@ -34,8 +22,7 @@ export default defineConfig({
       [ShikiRemarkPlugin, {
         themes: ['vitesse-dark', 'vitesse-light'],
         generateMultiCode: true,
-        highlightLines: true,
-        customerHtmlHandle
+        highlightLines: true
       }]
     ],
     rehypePlugins: [
