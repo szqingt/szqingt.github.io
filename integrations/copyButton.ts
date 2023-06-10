@@ -129,7 +129,7 @@ function markdownCodeCopy(): AstroIntegration {
             ],
           }
         })
-        injectScript('head-inline', injectScriptRaw)
+        injectScript('page', injectScriptRaw)
       }
     }
   }
