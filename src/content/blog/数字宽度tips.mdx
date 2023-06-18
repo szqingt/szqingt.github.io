@@ -1,0 +1,24 @@
+---
+title: 数字变化抖动问题
+createDate: Sun Jun 18 2023 22:36:44 GMT+0800 (中国标准时间)
+pubDate: Sun Jun 18 2023 22:36:44 GMT+0800 (中国标准时间)
+tags: ["CSS", "Tips"]
+description:  解决在数字动态变化时，不同宽度问题导致页面也在抖动
+draft: false
+---
+import DemoTextarea from '../demo/textarea.astro'
+
+## 起因
+
+在实现一个显示能剩余输入字数的功能的时候发现随着文字的输入过程中，显示的可输入字数在一直抖动。看起来是因为不同的数字的宽度不同导致的，效果如下可以试着输入内容发现右侧会一直抖动
+
+<DemoTextarea />
+
+## 解决
+开始是想着既然是因为不同数字宽度不一致导致那么直接用等宽字体不就好了。效果如下确实好使，但是有个问题字体一样了感觉整体不协调
+
+<DemoTextarea useMonosapce/>
+
+使用新出的 css 属性<fancy-link href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-variant-numeric">font-variant-numeric</fancy-link>的 `tabular-nums` 解决，它可以在不改变字体的情况下让数字等宽。效果如下。`tabular-nums` 表示让数字等宽，`font-variant-numeric` 还有许多选项可以在 MDN 查看。
+
+<DemoTextarea useFontVariantNumeric/>
