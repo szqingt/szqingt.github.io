@@ -19,7 +19,7 @@ description: '如何在chroem中使用自签名证书'
 * 4096 密钥的长度
 
 根自签名证书
-> openssl req -x509 -sha256 -new -key root.key -sha256 -days 1024 -out myroot.crt
+> openssl req -x509 -sha256 -new -key root.key -days 1024 -out myroot.crt
 
 服务端密钥
 > openssl genrsa -out myserver.key 2048
