@@ -1,6 +1,7 @@
 ---
 title: 'Chrome中使用自签名证书'
 pubDate: '2022-05-30 18:33'
+updatedDate: '2023-8-18 15:56:41'
 tags: ['Chrome', 'ssl', 'Certificate', '技术', 'https']
 description: '如何在chroem中使用自签名证书'
 ---
@@ -49,6 +50,15 @@ subjectAltName = @alt_names
 [alt_names]
 DNS.1 = myserver.com
 ```
+
+**update on 2023-8-18 15:56:41** 如果使用的的是 ip 那么
+```bash
+subjectAltName = @alt_names
+
+[alt_names]
+IP = 192.168.1.1
+```
+
 
 
 > openssl x509 -req -sha256 -in myserver.csr -CA root.crt -CAkey root.key -CAcreateserial -out myserver.crt -days 365 -extfile myext.ext
