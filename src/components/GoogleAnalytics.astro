@@ -1,9 +1,19 @@
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ8B0EECND"></script>
-<script>
-  // @ts-nocheck
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SZ8B0EECND');
-</script>
+---
+
+const isProd = import.meta.env.PROD;
+
+---
+
+{
+  isProd && <>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ8B0EECND"></script>
+  <script>
+    // @ts-nocheck
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SZ8B0EECND');
+  </script>
+</>
+}

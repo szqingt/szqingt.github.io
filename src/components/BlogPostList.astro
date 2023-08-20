@@ -39,7 +39,7 @@ const isSameYear = (a: Date | string | number, b: Date | string | number) => a &
         }
         <li class="item block font-normal mb-6 mt-2 no-underline">
           <BlogLink slug={post.slug} title={post.data.title} />
-          <span class="block min-w-10rem text-tertiary">
+          <span transition:name={`blog-time${post.data.pubDate}`}  class="block min-w-10rem text-tertiary">
             <FormattedDate date={post.data.pubDate} />
             · <span>{simpleCalcReadingTime(post.body)}</span>
           </span>

@@ -12,4 +12,4 @@ const { slug, title } = Astro.props;
     
   }
 </style>
-<a class="blog-link text-lg" href={`/blog/${slug}/`}>{title}</a>
+<a transition:name={`blog-title${title}`} class="blog-link text-lg" href={`/blog/${slug}/`}>{title}</a>

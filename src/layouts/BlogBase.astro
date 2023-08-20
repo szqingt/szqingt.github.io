@@ -17,12 +17,13 @@ const { title, description} = Astro.props;
 	<head>
 		<BaseHead title={title} description={description || SITE_DESCRIPTION} />
 	</head>
-	<GoogleAnalytics />
+	
 	<body class="font-sans">
 		<Header />
 		<main class="px-6 lg:px-7 py-10 max-w-70ch text-1rem leading-7 m-auto">
 			<slot />
 		</main>
 		<Footer />
+		<GoogleAnalytics />
 	</body>
 </html>

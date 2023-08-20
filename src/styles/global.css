@@ -118,7 +118,7 @@ html {
 }
 
 /*  animation refer https://antfu.me/posts/sliding-enter-animation  */
-@media (prefers-reduced-motion:no-preference) {
+/* @media (prefers-reduced-motion:no-preference) {
   .slide-enter-content > * {
     --enter-stage: 0;
     --enter-step: 150ms;
@@ -147,4 +147,4 @@ html {
   .slide-enter-content > *:nth-child(18) { --enter-stage: 18; }
   .slide-enter-content > *:nth-child(19) { --enter-stage: 19; }
   .slide-enter-content > *:nth-child(20) { --enter-stage: 20; }
-}
+} */
