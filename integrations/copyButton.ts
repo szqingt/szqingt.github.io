@@ -79,7 +79,7 @@ const style = `
 
 // form astro https://github.com/withastro/docs/blob/main/src/components/CodeSnippet/CodeSnippet.astro
 const injectScriptRaw = `
-(function init() {
+function copyButtonInit() {
   const styleEl = document.createElement('style');
   styleEl.innerText = \`${style}\`;
   document.head.appendChild(styleEl);
@@ -101,7 +101,9 @@ const injectScriptRaw = `
       }
     });
   });
-})()
+}
+copyButtonInit()
+document.addEventListener("astro:beforeload", copyButtonInit);
 `
 
 
