@@ -15,7 +15,7 @@ function customerHtmlHandle(code: any, html: string, theme: string) {
   const [_, __, titleValue] = Array.from(match || [])
   const copyBtnHtml = getCopyButton(code.value)
   return `<figure class="${theme}-code-container ${titleValue ? 'has-title' : ''}">
-      ${titleValue ? '<figcaption class="header"><span class="tite">${titleValue}</span></figcaption>' : ''}${html}${copyBtnHtml}
+      ${titleValue ? `<figcaption class="header"><span class="tite">${titleValue}</span></figcaption>` : ''}${html}${copyBtnHtml}
     </figure>`
 }
 
