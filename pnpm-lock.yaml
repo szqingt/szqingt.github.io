@@ -16,21 +16,23 @@ importers:
       fancy-link: workspace:*
       rehype-external-links: ^3.0.0
       remark-shiki-plugin: ^0.0.6
+      typescript: ^5.0.2
       unocss: ^0.51.13
     dependencies:
       '@astrojs/mdx': 2.2.1_astro@4.5.9
       '@astrojs/rss': 4.0.5
       '@astrojs/sitemap': 3.1.1
-      astro: 4.5.9_@types+node@20.5.1
+      astro: 4.5.9_vqxptsgaayc3gxeka2c62fobra
     devDependencies:
       '@iconify-json/carbon': 1.1.19
       '@types/node': 20.5.1
       '@unocss/astro': 0.51.13
       '@unocss/reset': 0.51.13
-      capture-website: 3.2.0
+      capture-website: 3.2.0_typescript@5.4.3
       fancy-link: link:packages/fancy-link
       rehype-external-links: 3.0.0
       remark-shiki-plugin: 0.0.6
+      typescript: 5.4.3
       unocss: 0.51.13
 
   packages/fancy-link:
@@ -108,7 +110,7 @@ packages:
       '@astrojs/markdown-remark': 4.3.1
       '@mdx-js/mdx': 3.0.1
       acorn: 8.11.3
-      astro: 4.5.9_@types+node@20.5.1
+      astro: 4.5.9_vqxptsgaayc3gxeka2c62fobra
       es-module-lexer: 1.4.2
       estree-util-visit: 2.0.0
       github-slugger: 2.0.0
@@ -430,7 +432,7 @@ packages:
     dependencies:
       '@cliqz/adblocker': 1.26.6
       '@cliqz/adblocker-content': 1.26.6
-      puppeteer: 19.11.1
+      puppeteer: 19.11.1_typescript@5.4.3
       tldts-experimental: 6.0.14
 
   /@cliqz/adblocker/1.26.6:
@@ -1210,6 +1212,29 @@ packages:
       yargs: 17.7.1
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@puppeteer/browsers/0.5.0_typescript@5.4.3:
+    resolution: {integrity: sha512-Uw6oB7VvmPRLE4iKsjuOh8zgDabhNX67dzo8U/BB0f9527qx+4eeUs+korU98OhG5C4ubg7ufBgVi63XYwS6TQ==}
+    engines: {node: '>=14.1.0'}
+    hasBin: true
+    peerDependencies:
+      typescript: '>= 4.7.4'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      debug: 4.3.4
+      extract-zip: 2.0.1
+      https-proxy-agent: 5.0.1
+      progress: 2.0.3
+      proxy-from-env: 1.1.0
+      tar-fs: 2.1.1
+      typescript: 5.4.3
+      unbzip2-stream: 1.4.3
+      yargs: 17.7.1
+    transitivePeerDependencies:
+      - supports-color
 
   /@remusao/guess-url-type/1.2.1:
     resolution: {integrity: sha512-rbOqre2jW8STjheOsOaQHLgYBaBZ9Owbdt8NO7WvNZftJlaG3y/K9oOkl8ZUpuFBisIhmBuMEW6c+YrQl5inRA==}
@@ -1851,7 +1876,7 @@ packages:
     hasBin: true
     dev: false
 
-  /astro/4.5.9_@types+node@20.5.1:
+  /astro/4.5.9_vqxptsgaayc3gxeka2c62fobra:
     resolution: {integrity: sha512-GheU72Goz7dYQNKaqTxB2H49cNvHfahGSbNkTvMXk+gyHf/g633qadqlO2ZQbTUacoUWmDzvS5fhMZt2/w4naQ==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
@@ -1909,7 +1934,7 @@ packages:
       shiki: 1.2.0
       string-width: 7.1.0
       strip-ansi: 7.1.0
-      tsconfck: 3.0.3
+      tsconfck: 3.0.3_typescript@5.4.3
       unist-util-visit: 5.0.0
       vfile: 6.0.1
       vite: 5.2.4_@types+node@20.5.1
@@ -2125,6 +2150,24 @@ packages:
       - supports-color
       - typescript
       - utf-8-validate
+    dev: false
+
+  /capture-website/3.2.0_typescript@5.4.3:
+    resolution: {integrity: sha512-AupgsR6iNi2RA8Prgr1JuuTKYSgfKNU/7cl90Xndh1VhfEwYr4jjduyPJvNyc7nhCOyl9ocCzW6nbB7xLuSmug==}
+    engines: {node: '>=14.16'}
+    dependencies:
+      '@cliqz/adblocker-puppeteer': 1.26.6_puppeteer@19.11.1
+      file-url: 4.0.0
+      node-fetch: 3.3.2
+      puppeteer: 19.11.1_typescript@5.4.3
+      tough-cookie: 4.1.3
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - supports-color
+      - typescript
+      - utf-8-validate
+    dev: true
 
   /ccount/2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -4701,6 +4744,34 @@ packages:
       - encoding
       - supports-color
       - utf-8-validate
+    dev: false
+
+  /puppeteer-core/19.11.1_typescript@5.4.3:
+    resolution: {integrity: sha512-qcuC2Uf0Fwdj9wNtaTZ2OvYRraXpAK+puwwVW8ofOhOgLPZyz1c68tsorfIZyCUOpyBisjr+xByu7BMbEYMepA==}
+    engines: {node: '>=14.14.0'}
+    peerDependencies:
+      typescript: '>= 4.7.4'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@puppeteer/browsers': 0.5.0_typescript@5.4.3
+      chromium-bidi: 0.4.7_7yd6ibrwer4fxzjxd6md3toxiy
+      cross-fetch: 3.1.5
+      debug: 4.3.4
+      devtools-protocol: 0.0.1107588
+      extract-zip: 2.0.1
+      https-proxy-agent: 5.0.1
+      proxy-from-env: 1.1.0
+      tar-fs: 2.1.1
+      typescript: 5.4.3
+      unbzip2-stream: 1.4.3
+      ws: 8.13.0
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - supports-color
+      - utf-8-validate
 
   /puppeteer/19.11.1:
     resolution: {integrity: sha512-39olGaX2djYUdhaQQHDZ0T0GwEp+5f9UB9HmEP0qHfdQHIq0xGQZuAZ5TLnJIc/88SrPLpEflPC+xUqOTv3c5g==}
@@ -4712,6 +4783,24 @@ packages:
       progress: 2.0.3
       proxy-from-env: 1.1.0
       puppeteer-core: 19.11.1
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - supports-color
+      - typescript
+      - utf-8-validate
+    dev: false
+
+  /puppeteer/19.11.1_typescript@5.4.3:
+    resolution: {integrity: sha512-39olGaX2djYUdhaQQHDZ0T0GwEp+5f9UB9HmEP0qHfdQHIq0xGQZuAZ5TLnJIc/88SrPLpEflPC+xUqOTv3c5g==}
+    requiresBuild: true
+    dependencies:
+      '@puppeteer/browsers': 0.5.0_typescript@5.4.3
+      cosmiconfig: 8.1.3
+      https-proxy-agent: 5.0.1
+      progress: 2.0.3
+      proxy-from-env: 1.1.0
+      puppeteer-core: 19.11.1_typescript@5.4.3
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -5456,7 +5545,7 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /tsconfck/3.0.3:
+  /tsconfck/3.0.3_typescript@5.4.3:
     resolution: {integrity: sha512-4t0noZX9t6GcPTfBAbIbbIU4pfpCwh0ueq3S4O/5qXI1VwK1outmxhe9dOiEWqMz3MW2LKgDTpqWV+37IWuVbA==}
     engines: {node: ^18 || >=20}
     hasBin: true
@@ -5465,6 +5554,8 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+    dependencies:
+      typescript: 5.4.3
     dev: false
 
   /tslib/2.6.2:
@@ -5522,6 +5613,11 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
     dev: false
+
+  /typescript/5.4.3:
+    resolution: {integrity: sha512-KrPd3PKaCLr78MalgiwJnA25Nm8HAmdwN3mYUYZgG/wizIo9EainNVQI9/yDavtVFRN2h3k8uf3GLHuhDMgEHg==}
+    engines: {node: '>=14.17'}
+    hasBin: true
 
   /ufo/1.1.2:
     resolution: {integrity: sha512-TrY6DsjTQQgyS3E3dBaOXf0TpPD8u9FVrVYmKVegJuFw51n/YB9XPt+U6ydzFG5ZIN7+DIjPbNmXoBj9esYhgQ==}
