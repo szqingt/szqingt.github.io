@@ -26,8 +26,10 @@ export function simpleCalcReadingTime(content: string): string {
 
 export async function getBlogUsablePost() {
 
-  const posts = (await getCollection('blog')).filter(post => !post.data.draft).sort(
+  const posts = await getCollection('blog', ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true;
+  });
+  return posts.sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
   );
-  return posts;
 }

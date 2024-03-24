@@ -5,7 +5,7 @@ import { getBlogUsablePost } from '../../utils';
 
 export async function getStaticPaths() {
 	const posts = await getBlogUsablePost();
-	return posts.filter(post => !post.data.draft).map((post) => ({
+	return posts.map((post) => ({
 		params: { slug: post.slug },
 		props: post,
 	}));

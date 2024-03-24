@@ -1,0 +1,189 @@
+---
+---
+
+<head>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  />
+</head>
+<div>
+  <canvas id="myCanvas" width="800" height="500" style="border: 1px solid #ccc;"
+  ></canvas>
+  <button id="toggleButton">switch</button>
+</div>
+<!-- <script>
+  var canvas = document.getElementById("myCanvas");
+  var context = canvas.getContext("2d");
+  context.lineWidth = 2;
+  var points = [];
+  var isSmoothDrawing = true;
+
+  function drawLine(context, points) {
+    context.beginPath();
+    context.moveTo(points[0].x, points[0].y);
+
+    for (var i = 1; i < points.length; i++) {
+      context.lineTo(points[i].x, points[i].y);
+    }
+
+    context.stroke();
+  }
+
+  // function drawPenStroke(context, points) {
+  //     context.beginPath();
+  //     context.moveTo(points[0].x, points[0].y);
+
+  //     for (var i = 1; i < points.length; i++) {
+  //         var dx = points[i].x - points[i - 1].x;
+  //         var dy = points[i].y - points[i - 1].y;
+  //         var distance = Math.sqrt(dx * dx + dy * dy);
+
+  //         // Calculate line width and opacity based on distance
+  //         var lineWidth = Math.min(5, 5 / distance);
+  //         var opacity = Math.min(1, 2 / distance);
+
+  //         context.lineWidth = lineWidth;
+  //         context.strokeStyle = `rgba(0, 0, 0, ${opacity})`;
+
+  //         context.lineTo(points[i].x, points[i].y);
+  //         context.stroke();
+  //     }
+  // }
+
+  function drawSmoothLine(context, points) {
+    context.beginPath();
+    context.moveTo(points[0].x, points[0].y);
+
+
+    for (var i = 1; i < points.length - 2; i++) {
+      var xc = (points[i].x + points[i + 1].x) / 2;
+      var yc = (points[i].y + points[i + 1].y) / 2;
+      context.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
+    }
+
+    context.lineTo(points[points.length - 2].x, points[points.length - 2].y);
+    context.lineTo(points[points.length - 1].x, points[points.length - 1].y);
+
+    context.stroke();
+  }
+
+  function clearCanvas() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  function toggleDrawingMode() {
+    isSmoothDrawing = !isSmoothDrawing;
+    const drawPoints = [points[0]];
+    let pretime = performance.now();
+    function animationStep(timestamp) {
+      if (drawPoints.length === points.length) return;
+      if (timestamp - pretime > 10) {
+        drawPoints.push(points[drawPoints.length - 1]);
+        clearCanvas();
+        if (isSmoothDrawing) {
+          drawSmoothLine(context, drawPoints);
+        } else {
+          drawLine(context, drawPoints);
+        }
+        pretime = timestamp;
+      }
+
+      window.requestAnimationFrame(animationStep);
+    }
+
+    window.requestAnimationFrame(animationStep);
+  }
+
+  canvas.addEventListener("mousedown", function (event) {
+    var rect = canvas.getBoundingClientRect();
+    var x = event.clientX - rect.left;
+    var y = event.clientY - rect.top;
+    points = [{ x: x, y: y }];
+
+    canvas.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+  });
+
+  function onMouseMove(event) {
+    var rect = canvas.getBoundingClientRect();
+    var x = event.clientX - rect.left;
+    var y = event.clientY - rect.top;
+    points.push({ x: x, y: y });
+
+    clearCanvas();
+    if (isSmoothDrawing) {
+      drawSmoothLine(context, points);
+    } else {
+      drawLine(context, points);
+    }
+  }
+
+  function onMouseUp() {
+    canvas.removeEventListener("mousemove", onMouseMove);
+    document.removeEventListener("mouseup", onMouseUp);
+  }
+
+  var toggleButton = document.getElementById("toggleButton");
+  toggleButton.addEventListener("click", toggleDrawingMode);
+</script> -->
+
+
+<script>
+
+  // 获取Canvas元素和上下文
+  var canvas = document.getElementById('myCanvas');
+  var context = canvas.getContext('2d');
+
+        // 定义绘制状态变量
+        var isDrawing = false;
+        var lastX = 0;
+        var lastY = 0;
+        var lineWidth = 2;
+
+        // 监听鼠标按下事件
+        canvas.addEventListener('mousedown', function (e) {
+            isDrawing = true;
+            [lastX, lastY] = [e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop];
+        });
+
+        // 监听鼠标移动事件
+        canvas.addEventListener('mousemove', function (e) {
+            if (!isDrawing) return;
+
+            var currentX = e.clientX - canvas.offsetLeft;
+            var currentY = e.clientY - canvas.offsetTop;
+
+            // 计算速度
+            var distance = Math.sqrt(Math.pow(currentX - lastX, 2) + Math.pow(currentY - lastY, 2));
+            var speed = Math.min(10, 1 + 4* distance / 10);
+
+            // 根据速度调整线条粗细
+            lineWidth = Math.max(2, 8 - speed);
+
+            // 使用三次贝塞尔曲线绘制平滑线条
+            context.beginPath();
+            context.moveTo(lastX, lastY);
+            var controlX1 = (lastX + currentX) / 2;
+            var controlY1 = (lastY + currentY) / 2;
+            var controlX2 = (lastX + controlX1) / 2;
+            var controlY2 = (lastY + controlY1) / 2;
+            context.bezierCurveTo(controlX2, controlY2, controlX1, controlY1, currentX, currentY);
+            context.lineWidth = lineWidth;
+            context.lineCap = 'round';
+            context.strokeStyle = 'black';
+            context.stroke();
+
+            [lastX, lastY] = [currentX, currentY];
+        });
+
+        // 监听鼠标释放事件
+        canvas.addEventListener('mouseup', function () {
+            isDrawing = false;
+        });
+
+        // 监听鼠标离开Canvas区域事件
+        canvas.addEventListener('mouseout', function () {
+            isDrawing = false;
+        });
+</script>

@@ -1,13 +1,14 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content';
+import { type CollectionEntry } from 'astro:content';
 import BlogPostList from '../../components/BlogPostList.astro';
 import BlogBase from '../../layouts/BlogBase.astro';
+import { getBlogUsablePost } from '../../utils';
 
 const { tag } = Astro.params;
 const { tagAllPost } = Astro.props;
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
+	const posts = await getBlogUsablePost();
 
 	const allTags = Array.from(posts.reduce((pre, cur) => {
 		cur.data.tags.forEach(tag => {
