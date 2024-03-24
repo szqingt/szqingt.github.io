@@ -17,6 +17,7 @@
     "astro": "^4.5.9"
   },
   "devDependencies": {
+    "typescript": "^5.0.2",
     "@iconify-json/carbon": "^1.1.19",
     "@types/node": "^20.5.1",
     "@unocss/astro": "^0.51.13",
