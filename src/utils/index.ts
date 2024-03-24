@@ -1,47 +1,8 @@
 
 import { getCollection } from 'astro:content';
 
-let themeMode = localStorage.getItem('color-scheme') || 'auto'
-
-export function getPrefersDark() {
-  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-}
-
-export function getThemeClassWithMode(mode: string) {
-  const prefersDark = getPrefersDark()
-  return mode === 'auto' ? prefersDark ? 'dark' : 'light' : mode
-}
-
-export function toggleTheme(cb?: Function) {
-  const prefersDark = getPrefersDark()
-  
-  function setMode(mode: string) {
-    document.documentElement.classList.remove(getThemeClassWithMode(themeMode))
-    themeMode = mode
-    document.documentElement.classList.add(getThemeClassWithMode(themeMode))
-    localStorage.setItem('color-scheme', themeMode)
-    cb && cb(themeMode)
-  }
-
-  // 系统推荐黑暗 当前是不是light
-  if (prefersDark && themeMode !== 'light') {
-    setMode('light')
-    return
-  }
-  //  当前是light 当前不是dark
-  if(!prefersDark && themeMode !== 'dark') {
-    setMode('dark')
-    return
-  }
-  setMode('auto')
-}
-
-export function getThemeMode() {
-  return themeMode
-}
-
 export function simpleCalcReadingTime(content: string): string {
-  
+
   const wordReg = /([\u4E00-\u9FA5])|(\b[a-zA-Z]+\b)|((\b[0-9]+\b))/g
   const picReg = /!\[[^\]]+\]\([^\)]+\)/g
   const codeReg = /```.*\n([\s\S]*?)```/gm
@@ -53,7 +14,7 @@ export function simpleCalcReadingTime(content: string): string {
   const wordLength = content.match(wordReg)?.length || 0;
   const picLength = content.match(picReg)?.length || 0;
   const codeSec = (content.match(codeReg) || ['']).reduce((sec, cur) => {
-    const len = cur.split('\n') 
+    const len = cur.split('\n')
     return len.length * 2 + sec
   }, 0);
   let sec = 0;
@@ -65,12 +26,8 @@ export function simpleCalcReadingTime(content: string): string {
 
 export async function getBlogUsablePost() {
 
-const posts = (await getCollection('blog')).filter(post => !post.data.draft).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
-return posts;
-}
-
-export {
-  themeMode
+  const posts = (await getCollection('blog')).filter(post => !post.data.draft).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
+  return posts;
 }

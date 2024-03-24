@@ -31,8 +31,5 @@ export default defineConfig({
         target: '_blank'
       }]
     ]
-	},
-  experimental: {
-    viewTransitions: true
-   }
+	}
 });
