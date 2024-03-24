@@ -48,6 +48,11 @@ const style = `
   flex-direction: row-reverse;
 }
 
+.vitesse-dark-code-container.has-title .copy-button-wrapper,
+.vitesse-light-code-container.has-title .copy-button-wrapper {
+  top: 3rem;
+}
+
 .vitesse-dark-code-container .copy-button-wrapper .copy-button-tooltip,
 .vitesse-light-code-container .copy-button-wrapper .copy-button-tooltip {
   display: none;
@@ -103,7 +108,7 @@ function copyButtonInit() {
   });
 }
 copyButtonInit()
-document.addEventListener("astro:beforeload", copyButtonInit);
+document.addEventListener("astro:after-swap", copyButtonInit);
 `
 
 
